@@ -24,7 +24,7 @@ const commands = [
     new SlashCommandBuilder().setName('serverinfo').setDescription('Give info on the server'),
     new SlashCommandBuilder().setName('elections').setDescription('Command used for the elections time'),
     new SlashCommandBuilder().setName('test').setDescription('String to see if the bot answer'),
-    new SlashCommandBuilder().setName('help').setDescription('embed send to the caller'),
+    new SlashCommandBuilder().setName('help').setDescription('Embed sent to give info on the commands'),
     new SlashCommandBuilder().setName('changelog').setDescription('Embed for the changelog'),
 ]
 	.map(command => command.toJSON());
