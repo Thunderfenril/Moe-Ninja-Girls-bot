@@ -1,0 +1,31 @@
+{
+  "name": "mngrpg-2",
+  "version": "1.5.4",
+  "description": "Bot for Moe! Ninja Girls SHINOBI: RPG",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bot.js"
+  },
+  "engines": {
+    "node": "16.7.0"
+  },
+  "dependencies": {
+    "@discordjs/builders": "^0.5.0",
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "discord-api-types": "^0.22.0",
+    "discord.js": "^13.1.0",
+    "express": "^4.17.1"
+  },
+  "keywords": [
+    "MNG",
+    "RPG",
+    "Moe!",
+    "Ninja",
+    "Girls",
+    "SHINOBI:",
+    "RPG"
+  ],
+  "author": "Nico",
+  "license": "ISC"
+}
