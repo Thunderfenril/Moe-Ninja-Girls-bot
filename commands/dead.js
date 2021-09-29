@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const death = require("../array/deadList");
 
 module.exports = {
 	data: new SlashCommandBuilder()

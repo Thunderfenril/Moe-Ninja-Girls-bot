@@ -1,1 +1,1 @@
-let deadList=[]
+module.exports=[]

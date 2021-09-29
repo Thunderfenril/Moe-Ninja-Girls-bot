@@ -1,5 +1,8 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
+const dataInfo = require("../array/data")
+const func = require("../function/function.js")
+
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('versus')
@@ -9,8 +12,8 @@ module.exports = {
 			return message.reply({content: "You didn't provided an opponent baka !", allowedMentions: { repliedUser: true}});
 		  }
 	   
-		  let rightCharacter = givePositionIndex(args[1]); //We save the position of 1 of the character in a variable
-		  let leftCharacter = givePositionIndex(args[0]); //We save the position of the second character in another variable
+		  let rightCharacter = func.givePositionIndex(args[1]); //We save the position of 1 of the character in a variable
+		  let leftCharacter = func.givePositionIndex(args[0]); //We save the position of the second character in another variable
 	   
 		  if((rightCharacter === -1) || (leftCharacter === -1)){ //We do a test to see if one of the character hasn't been found
 		   return message.channel.send("You made an error in one of the name");
@@ -28,25 +31,25 @@ module.exports = {
 		  let announcementWinner = undefined; //Will be used to say who won the round
 	   
 		  const versusEmbed = new Discord.MessageEmbed()
-		   versusEmbed.setTitle(data[rightCharacter][0]+" "+data[rightCharacter][1]+" versus "+data[leftCharacter][0]+" "+data[leftCharacter][1])
+		   versusEmbed.setTitle(dataInfo[rightCharacter][0]+" "+dataInfo[rightCharacter][1]+" versus "+dataInfo[leftCharacter][0]+" "+dataInfo[leftCharacter][1])
 	   
 		   versusEmbed.addFields({name: "\u200B", value:"\u200B", inline: false})
 	   
 		   //Height round
 	   
-		   winnerRound = versusFight(rightCharacter, leftCharacter, 4, 0); //We search for the winner
+		   winnerRound = func.versusFight(rightCharacter, leftCharacter, 4, 0); //We search for the winner
 	   
 		   if(winnerRound == rightCharacter){ //If the winner is the right character
 			 rightCharacterScore+=1; //We increase the score
-			 announcementWinner = data[rightCharacter][0]+" won the round"; //We say she won the round
+			 announcementWinner = dataInfo[rightCharacter][0]+" won the round"; //We say she won the round
 		   } else if (winnerRound == leftCharacter){
 			 leftCharacterScore+=1;
-			 announcementWinner = data[leftCharacter][0]+" won the round";
+			 announcementWinner = dataInfo[leftCharacter][0]+" won the round";
 		   } else { //Tie case
 			 announcementWinner = "It's a tie" //We just announce it's a tie
 		   }
 		   versusEmbed.addFields({name: "\u200B", value:"\u200B", inline: true})
-		   versusEmbed.addFields({name: data[rightCharacter][4]+"    height    "+data[leftCharacter][4], value:announcementWinner, inline: true})
+		   versusEmbed.addFields({name: dataInfo[rightCharacter][4]+"    height    "+dataInfo[leftCharacter][4], value:announcementWinner, inline: true})
 		   versusEmbed.addFields({name: "\u200B", value:"\u200B", inline: true})
 	   
 		   //Small jump
@@ -54,48 +57,48 @@ module.exports = {
 	   
 		   //Breast round
 	   
-		   winnerRound = versusFight(rightCharacter, leftCharacter, 5, 0);
+		   winnerRound = func.versusFight(rightCharacter, leftCharacter, 5, 0);
 	   
 		   if(winnerRound == rightCharacter){
 			 rightCharacterScore+=1;
-			 announcementWinner = data[rightCharacter][0]+" won the round";
+			 announcementWinner = dataInfo[rightCharacter][0]+" won the round";
 		   } else if (winnerRound == leftCharacter){
 			 leftCharacterScore+=1;
-			 announcementWinner = data[leftCharacter][0]+" won the round";
+			 announcementWinner = dataInfo[leftCharacter][0]+" won the round";
 		   } else {
 			 announcementWinner = "It's a tie"
 		   }
-		   versusEmbed.addFields({name: data[rightCharacter][5][0]+"    bust    "+data[leftCharacter][5][0], value:announcementWinner, inline: true})
+		   versusEmbed.addFields({name: dataInfo[rightCharacter][5][0]+"    bust    "+dataInfo[leftCharacter][5][0], value:announcementWinner, inline: true})
 	   
 		   //Waist round
 	   
-		   winnerRound = versusFight(rightCharacter, leftCharacter, 5, 1);
+		   winnerRound = func.versusFight(rightCharacter, leftCharacter, 5, 1);
 	   
 		   if(winnerRound == rightCharacter){
 			 rightCharacterScore+=1;
-			 announcementWinner = data[rightCharacter][0]+" won the round";
+			 announcementWinner = dataInfo[rightCharacter][0]+" won the round";
 		   } else if (winnerRound == leftCharacter){
 			 leftCharacterScore+=1;
-			 announcementWinner = data[leftCharacter][0]+" won the round";
+			 announcementWinner = dataInfo[leftCharacter][0]+" won the round";
 		   } else {
 			 announcementWinner = "It's a tie"
 		   }
-		   versusEmbed.addFields({name: data[rightCharacter][5][1]+"    waist    "+data[leftCharacter][5][1], value:announcementWinner, inline: true})
+		   versusEmbed.addFields({name: dataInfo[rightCharacter][5][1]+"    waist    "+dataInfo[leftCharacter][5][1], value:announcementWinner, inline: true})
 	   
 		   //Hips round
 	   
-		   winnerRound = versusFight(rightCharacter, leftCharacter, 5, 2);
+		   winnerRound = func.versusFight(rightCharacter, leftCharacter, 5, 2);
 	   
 		   if(winnerRound == rightCharacter){
 			 rightCharacterScore+=1;
-			 announcementWinner = data[rightCharacter][0]+" won the round";
+			 announcementWinner = dataInfo[rightCharacter][0]+" won the round";
 		   } else if (winnerRound == leftCharacter){
 			 leftCharacterScore+=1;
-			 announcementWinner = data[leftCharacter][0]+" won the round";
+			 announcementWinner = dataInfo[leftCharacter][0]+" won the round";
 		   } else {
 			 announcementWinner = "It's a tie"
 		   }
-		   versusEmbed.addFields({name: data[rightCharacter][5][2]+"    hips    "+data[leftCharacter][5][2], value:announcementWinner, inline: true})
+		   versusEmbed.addFields({name: dataInfo[rightCharacter][5][2]+"    hips    "+dataInfo[leftCharacter][5][2], value:announcementWinner, inline: true})
 	   
 		   //Small jump
 	   
@@ -103,33 +106,33 @@ module.exports = {
 	   
 		   //Strength round
 	   
-		   winnerRound = versusFight(rightCharacter, leftCharacter, 12, 0);
+		   winnerRound = func.versusFight(rightCharacter, leftCharacter, 12, 0);
 	   
 		   if(winnerRound == rightCharacter){
 			 rightCharacterScore+=1;
-			 announcementWinner = data[rightCharacter][0]+" won the round";
+			 announcementWinner = dataInfo[rightCharacter][0]+" won the round";
 		   } else if (winnerRound == leftCharacter){
 			 leftCharacterScore+=1;
-			 announcementWinner = data[leftCharacter][0]+" won the round";
+			 announcementWinner = dataInfo[leftCharacter][0]+" won the round";
 		   } else {
 			 announcementWinner = "It's a tie"
 		   }
-		   versusEmbed.addFields({name: data[rightCharacter][12][0][1]+"    Strength    "+data[leftCharacter][12][0][1], value:announcementWinner, inline:true})
+		   versusEmbed.addFields({name: dataInfo[rightCharacter][12][0][1]+"    Strength    "+dataInfo[leftCharacter][12][0][1], value:announcementWinner, inline:true})
 	   
 		   //Shinobi round
 	   
-		   winnerRound = versusFight(rightCharacter, leftCharacter, 12, 1);
+		   winnerRound = func.versusFight(rightCharacter, leftCharacter, 12, 1);
 	   
 		   if(winnerRound == rightCharacter){
 			 rightCharacterScore+=1;
-			 announcementWinner = data[rightCharacter][0]+" won the round";
+			 announcementWinner = dataInfo[rightCharacter][0]+" won the round";
 		   } else if (winnerRound == leftCharacter){
 			 leftCharacterScore+=1;
-			 announcementWinner = data[leftCharacter][0]+" won the round";
+			 announcementWinner = dataInfo[leftCharacter][0]+" won the round";
 		   } else {
 			 announcementWinner = "It's a tie"
 		   }
-		   versusEmbed.addFields({name: data[rightCharacter][12][1][1]+"    Shinobi/Spiritual    "+data[leftCharacter][12][1][1], value:announcementWinner, inline:true})
+		   versusEmbed.addFields({name: dataInfo[rightCharacter][12][1][1]+"    Shinobi/Spiritual    "+dataInfo[leftCharacter][12][1][1], value:announcementWinner, inline:true})
 	   
 		   //Small Jump
 	   
@@ -137,33 +140,33 @@ module.exports = {
 	   
 		   //Intelligence round
 	   
-		   winnerRound = versusFight(rightCharacter, leftCharacter, 12, 2);
+		   winnerRound = func.versusFight(rightCharacter, leftCharacter, 12, 2);
 	   
 		   if(winnerRound == rightCharacter){
 			 rightCharacterScore+=1;
-			 announcementWinner = data[rightCharacter][0]+" won the round";
+			 announcementWinner = dataInfo[rightCharacter][0]+" won the round";
 		   } else if (winnerRound == leftCharacter){
 			 leftCharacterScore+=1;
-			 announcementWinner = data[leftCharacter][0]+" won the round";
+			 announcementWinner = dataInfo[leftCharacter][0]+" won the round";
 		   } else {
 			 announcementWinner = "It's a tie"
 		   }
-		   versusEmbed.addFields({name: data[rightCharacter][12][2][1]+"    Intelligence    "+data[leftCharacter][12][2][1], value:announcementWinner, inline:true})
+		   versusEmbed.addFields({name: dataInfo[rightCharacter][12][2][1]+"    Intelligence    "+dataInfo[leftCharacter][12][2][1], value:announcementWinner, inline:true})
 	   
 		   //Agility round
 	   
-		   winnerRound = versusFight(rightCharacter, leftCharacter, 12, 3);
+		   winnerRound = func.versusFight(rightCharacter, leftCharacter, 12, 3);
 	   
 		   if(winnerRound == rightCharacter){
 			 rightCharacterScore+=1;
-			 announcementWinner = data[rightCharacter][0]+" won the round";
+			 announcementWinner = dataInfo[rightCharacter][0]+" won the round";
 		   } else if (winnerRound == leftCharacter){
 			 leftCharacterScore+=1;
-			 announcementWinner = data[leftCharacter][0]+" won the round";
+			 announcementWinner = dataInfo[leftCharacter][0]+" won the round";
 		   } else {
 			 announcementWinner = "It's a tie"
 		   }
-		   versusEmbed.addFields({name: data[rightCharacter][12][3][1]+"    Agility    "+data[leftCharacter][12][3][1], value:announcementWinner, inline:true})
+		   versusEmbed.addFields({name: dataInfo[rightCharacter][12][3][1]+"    Agility    "+dataInfo[leftCharacter][12][3][1], value:announcementWinner, inline:true})
 	   
 		   //Small Jump
 	   
@@ -172,19 +175,19 @@ module.exports = {
 		 //Results announcement
 		 versusEmbed.addFields({name: "\u200B", value:"\u200B", inline: true})
 		 if(rightCharacterScore > leftCharacterScore){ //Right character wins
-		   versusEmbed.addFields({name:"Victory", value: data[rightCharacter][0]+" won with "+rightCharacterScore+" points🏆", inline: true})
-		   versusEmbed.setImage(data[leftCharacter][15][0])
+		   versusEmbed.addFields({name:"Victory", value: dataInfo[rightCharacter][0]+" won with "+rightCharacterScore+" points🏆", inline: true})
+		   versusEmbed.setImage(dataInfo[leftCharacter][15][0])
 		   versusEmbed.addFields({name: "\u200B", value:"\u200B", inline: true})
 		   message.channel.send({ embeds: [versusEmbed]})
 		 } else if(rightCharacterScore < leftCharacterScore){ //Left character wins
-		   versusEmbed.addFields({name:"Victory", value: data[leftCharacter][0]+" won with "+leftCharacterScore+" points🏆", inline: true})
-		   versusEmbed.setImage(data[rightCharacter][15][0])
+		   versusEmbed.addFields({name:"Victory", value: dataInfo[leftCharacter][0]+" won with "+leftCharacterScore+" points🏆", inline: true})
+		   versusEmbed.setImage(dataInfo[rightCharacter][15][0])
 		   versusEmbed.addFields({name: "\u200B", value:"\u200B", inline: true})
 		   message.channel.send({ embeds: [versusEmbed]})
 		 } else {
 		   versusEmbed.addFields({name: "End of the fight", value:"It's a tie with "+rightCharacterScore+" points.", inline: true})
-		   versusEmbed.setThumbnail(data[leftCharacter][15][0])
-		   versusEmbed.setImage(data[rightCharacter][15][0])
+		   versusEmbed.setThumbnail(dataInfo[leftCharacter][15][0])
+		   versusEmbed.setImage(dataInfo[rightCharacter][15][0])
 		   versusEmbed.addFields({name: "\u200B", value:"\u200B", inline: true})
 		   message.channel.send({ embeds: [versusEmbed]})
 		 }

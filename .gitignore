@@ -2,3 +2,6 @@ node_modules/
 config.json
 bot.js
 package-lock.json
+config.json
+updateV13.js
+TempFileToChangeACommand.js

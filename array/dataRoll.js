@@ -1,4 +1,4 @@
-const dataRoll = [ //Array for the roll command
+module.exports = [ //Array for the roll command
 
     //Tools then Body
   

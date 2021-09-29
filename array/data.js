@@ -1,4 +1,4 @@
-const data = [ //Array for the profile command
+module.exports= [ //Array for the profile command
     //Format: Name, Family name, birthday (own tab [day, month]), Zodiac Sign, height, 3 sizes (own tab[chest, waist, hips, "size"]), Gift (own tab[fav, normal]), Seyuu, Eye color, Hair color, Hobbies, Likes, personal rating (own tab[["Value", rating]]), image, thumbnail, color, burst
     ["Akari", "Hanao", [20, 3], "Pisces", 161, [88, 57, 85, "E"], ["Colorful sneakers, Momonga and Flower Bouquet", "Surprise mystery box"], "Aya Suzaki", "Red wine", "Clear Gold", "Karaoke", "Attempting new things", [["Strength", 6], ["Shinobi Skill", 2], ["Intelligence", 7], ["Agility", 8], ["Singing", 0]], "https://66.media.tumblr.com/f43595c0cdf27c3958e0c5673d2f6468/2e152319c5dbaa4a-c3/s1280x1920/8422853ff1cb601e95dff3bded594eb86e9a819a.png ", 16711685, ["https://64.media.tumblr.com/9db87e2fa863c751a4b9b9bc162b5656/83d81f39fa31da80-47/s2048x3072/35b461291fc8a5fdf46a9e0d09c519af23a6a66e.png", "temp"]],
   

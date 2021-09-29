@@ -1,4 +1,4 @@
-const dataHelp = [ //Array for the help command
+module.exports = [ //Array for the help command
 
     /*[ , , ["\u200b", "\u200b"], [, "\u200b"], ["Arguments:", ], ["Explanation:", ], ["Example of use:", ]]*/ //Format of the array
   

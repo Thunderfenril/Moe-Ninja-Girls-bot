@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const fmData = require("../array/fmData");
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -70,7 +71,6 @@ module.exports = {
 						  //New variable for the sake of the calcul
 						  let valuePower;
 						  let valuePowerJuice;
-						  let fmCounter;
 						  let stageHealth;
 						  let counterLimit;
 						  let numberTurn;
@@ -100,10 +100,10 @@ module.exports = {
 	 
 	 
 						  //For loop so we can take the value of the selected stage
-						  for(counterFor = 0; counterFor < datafm.length; counterFor++){
+						  for(counterFor = 0; counterFor < fmData.length; counterFor++){
 							if(valueStage == (counterFor+1)){
-							  stageHealth = datafm[counterFor][0];
-							  counterLimit = datafm[counterFor][1];
+							  stageHealth = fmData[counterFor][0];
+							  counterLimit = fmData[counterFor][1];
 							}
 						  }
 	 
