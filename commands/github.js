@@ -2,9 +2,9 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('test')
-		.setDescription('String to see if the bot answer'),
+		.setName('github')
+		.setDescription('The github command'),
 	async execute(interaction) {
-        return interaction.reply('Yes ?');
+		return interaction.reply("https://github.com/SeibaUrufu/Moe-Ninja-Girls-bot")
 	},
 };

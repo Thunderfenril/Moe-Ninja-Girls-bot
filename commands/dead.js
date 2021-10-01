@@ -1,17 +1,18 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const death = require("../array/deadList");
+const deadlist = require("../array/deadList");
+const botownerid=221352736657113088;
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('dead')
 		.setDescription('Allow to see the dead people'),
 	async execute(interaction) {
-		if (message.author.id==botOwnerID) {
-			for (counter=0; counter<deadList.length; counter++) {
-			  message.channel.send((counter+1)+") "+"<@"+deadList[counter]+">"+"\n")
+		if (interaction.member.id==botownerid) {
+			for (counter=0; counter<deadlist.length; counter++) {
+			  return interaction.reply((counter+1)+") "+"<@"+deadList[counter]+">"+"\n")
 			}
 		  } else {
-			message.channel.send("You can't see it")
+			return interaction.reply("You can't see it")
 		  }
 	},
 };

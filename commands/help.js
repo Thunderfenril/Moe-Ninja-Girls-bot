@@ -1,4 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const {MessageEmbed} = require('discord.js');
+
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -7,7 +9,7 @@ module.exports = {
 	async execute(interaction) {
 		const help = args[0]; //Look if there is an argument.
     	let indexHelp = -1;
-    	const embedHelp = new Discord.MessageEmbed() //We will create a new embed
+    	const embedHelp = new MessageEmbed() //We will create a new embed
     	  embedHelp.setColor(5294200) //We set the color of the embed
     	switch (help) { //We look for the value stored in help
     	  case "tips":

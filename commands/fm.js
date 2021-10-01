@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const fmData = require("../array/fmData");
+const fmdata = require("../array/datafm");
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -94,16 +94,16 @@ module.exports = {
 							valuePower = powerFire + powerIce + powerThunder*2 + powerLevel + powerShuriken;
 							valuePowerJuice = powerFire + powerIce + powerThunder*3 + powerLevel + powerShuriken;
 						  } else {
-							message.channel.send("error");
+							return interaction.reply("error");
 							return;
 						  }
 	 
 	 
 						  //For loop so we can take the value of the selected stage
-						  for(counterFor = 0; counterFor < fmData.length; counterFor++){
+						  for(counterFor = 0; counterFor < fmdata.length; counterFor++){
 							if(valueStage == (counterFor+1)){
-							  stageHealth = fmData[counterFor][0];
-							  counterLimit = fmData[counterFor][1];
+							  stageHealth = fmdata[counterFor][0];
+							  counterLimit = fmdata[counterFor][1];
 							}
 						  }
 	 
@@ -119,8 +119,8 @@ module.exports = {
 						  } else if (numberTurn<=counterLimit) {
 							message.reply("You can beat the stage in "+numberTurn+" turns without juice.")
 						  } else {
-							message.channel.send("Error <@"+botOwnerID+">")
-							message.channel.send("numberTurn: "+numberTurn+"\nnumberTurnJuice: "+numberTurnJuice+"\ncounterLimit: "+counterLimit+"\nvaluePower: "+valuePower+"\nvaluePowerJuice: "+valuePowerJuice+"\nStage: "+valueStage)
+							return interaction.reply("Error <@"+botOwnerID+">")
+							return interaction.reply("numberTurn: "+numberTurn+"\nnumberTurnJuice: "+numberTurnJuice+"\ncounterLimit: "+counterLimit+"\nvaluePower: "+valuePower+"\nvaluePowerJuice: "+valuePowerJuice+"\nStage: "+valueStage)
 						  }
 	 
 						})

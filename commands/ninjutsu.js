@@ -1,13 +1,14 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const func = require("../function/function.js")
 
+
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('ninjutsu')
 		.setDescription('Random ninjutsu string'),
 	async execute(interaction) {
 		if (!args.length) { //We look if there is an argument
-			message.channel.send("There is no target <@"+message.author.id+">"); //if there isn't, we send this message
+			return interaction.reply("There is no target <@"+interaction.member.id+">"); //if there isn't, we send this message
 		  } else {
 			let target = args; //We save the argument there
 			let isMention = message.mentions.users.first(); //We save the first mention in the argument list. no mention = undefined
@@ -66,7 +67,7 @@ module.exports = {
 				string = "You used a fire jutsu on "+target.join(' ')+", but you made a mistake.\nYou suffer from heavy burn of it, but survive.";
 			  } else if (randomNinjutsu < 20) {
 				string = "You used a fire jutsu on "+target.join(' ')+", but you made a mistake.\nYou has been killed from it.";
-				deadList.push(message.author.id) //We add the author of the message in the deadList array
+				deadList.push(interaction.member.id) //We add the author of the message in the deadList array
 			  } else if (randomNinjutsu < 35) {
 				string = "You used a shadow jutsu on "+target.join(' ')+", but you made a mistake.\nYou can't move anymore.";
 			  } else if (randomNinjutsu < 46) {
@@ -78,16 +79,16 @@ module.exports = {
 				string = "You used a water jutsu on "+target.join(' ')+", but you made a mistake.\nThe water blade made some small cut on yourself.";
 			  } else if (randomNinjutsu < 74) {
 				string = "You used a water jutsu on "+target.join(' ')+", but you made a mistake.\nThe swift water blade kill you.";
-				deadList.push(message.author.id)
+				deadList.push(interaction.member.id)
 			  } else if (randomNinjutsu < 84) {
 				string = "You used a genjutsu technique on "+target.join(' ')+", but you made a mistake.\nYou now think you are of the opposite gender.";
 			  } else if (randomNinjutsu < 94) {
 				string = "You used a wind jutsu on "+target.join(' ')+", but you made a mistake.\nYou are now levitating in the sky.\nCan you see "+target.join(' ')+" house from there ?";
 			  } else if (randomNinjutsu < 104) {
-				string = "You used a summon ninjutsu. You summoned a dog, but you made a mistake.\nThe dog started to attack <@"+message.author.id+">.\nYou ran away.";
+				string = "You used a summon ninjutsu. You summoned a dog, but you made a mistake.\nThe dog started to attack <@"+interaction.member.id+">.\nYou ran away.";
 			  } else if (randomNinjutsu < 115) {
-				string = "You used a summon ninjutsu. You summoned a dog, but you made a mistake.\nThe dog started to attack <@"+message.author.id+">.\nYou got killed by it.";
-				deadList.push(message.author.id)
+				string = "You used a summon ninjutsu. You summoned a dog, but you made a mistake.\nThe dog started to attack <@"+interaction.member.id+">.\nYou got killed by it.";
+				deadList.push(interaction.member.id)
 			  } else if (randomNinjutsu < 125) {
 				randomVTuberSimp=Math.round(Math.random()*vTuberSimp.length-1);
 				string = "You used a genjutsu technique on "+target.join(' ')+", but you made a mistake.\nYou are now the biggest simp of "+vTuberSimp[randomVTuberSimp]+".";
@@ -99,15 +100,15 @@ module.exports = {
 				string = "You used a forbidden ninjutsu on "+target.join(' ')+".\nYou both started to hear some truck noise nearby.\nThe truck drive towards you.\nYou got isekaied.";
 			  } else if (randomNinjutsu < 148) {
 				string = "You used a lightning ninujtsu on "+target.join(' ')+", but you made a mistake.\nYou got shocked to func.death.";
-				deadList.push(message.author.id)
+				deadList.push(interaction.member.id)
 			  } else if (randomNinjutsu < 149) {
 				string = "You used an eart jutsu on "+target.join(' ')+", but you made a mistake.\nYou got crushed to func.death by the rocks.";
-				deadList.push(message.author.id)
+				deadList.push(interaction.member.id)
 			  } else {
 				string = "You used a special ninjutsu.\nNothing happen, you look like an idiot."
 			  }
 			}
-			message.channel.send(string.toString());
+			return interaction.reply(string.toString());
 		  }
 	},
 };

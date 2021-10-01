@@ -1,18 +1,19 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const {MessageEmbed} = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('changelog')
 		.setDescription('Embed for the changelog'),
 	async execute(interaction) {
-		const embedChange = new Discord.MessageEmbed()
+		const embedChange = new MessageEmbed()
      		.setTitle("Changelog")
      		.setColor(5294200)
-     		.setDescription("Changelog for the version 4.3.0.")
+     		.setDescription("Changelog for the version 5.0.0.")
      		.addFields({name:"__New feature__",
-     		            value:"The versus command."})
+     		            value:"The serverinfo command.\nThe walktrough command.\nThe github command."})
      		.addFields({name:"__Change in the code__",
-     		            value:"Corrected some typo."})
+     		            value:"Updated to discord V13.\nThe / commands.\nThe tips command has been removed"})
      		.addFields({name:"\u200B",
      		            value:"\u200B"})
      		.addFields({name:"__Plan to do__",
@@ -26,6 +27,6 @@ module.exports = {
      		.addFields({name: "Next work ?",
      		            value: "A side project not related to the server.",
      		            inline: true})
-   		message.channel.send({ embeds: [embedChange]});
+   		return interaction.reply({ embeds: [embedChange]});
 	},
 };

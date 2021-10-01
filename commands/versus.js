@@ -1,6 +1,8 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const {MessageEmbed} = require('discord.js');
 
-const dataInfo = require("../array/data")
+
+const datainfo = require("../array/data")
 const func = require("../function/function.js")
 
 module.exports = {
@@ -16,11 +18,11 @@ module.exports = {
 		  let leftCharacter = func.givePositionIndex(args[0]); //We save the position of the second character in another variable
 	   
 		  if((rightCharacter === -1) || (leftCharacter === -1)){ //We do a test to see if one of the character hasn't been found
-		   return message.channel.send("You made an error in one of the name");
+		   return interaction.reply("You made an error in one of the name");
 		  } else if (((rightCharacter == 2) || (leftCharacter == 2)) || ((rightCharacter == 3) || (leftCharacter == 3)) || ((rightCharacter == 8) || (leftCharacter == 8)) || ((rightCharacter == 9) || (leftCharacter == 9)) || ((rightCharacter == 10) || (leftCharacter == 10))) { //Temporary stop until we get the info on the RPG cast
-			return message.channel.send("We don't have all the info for one of the person, so we can't do the fight.");
+			return interaction.reply("We don't have all the info for one of the person, so we can't do the fight.");
 		  } else if (rightCharacter === leftCharacter) { //Test to see if the same character is on the 2 side
-			return message.channel.send("That's the same character, aho !")
+			return interaction.reply("That's the same character, aho !")
 		  }
 	   
 		  //Declaration of variable
@@ -30,8 +32,8 @@ module.exports = {
 		  let winnerRound = undefined; //Just a small variable that will change for every round
 		  let announcementWinner = undefined; //Will be used to say who won the round
 	   
-		  const versusEmbed = new Discord.MessageEmbed()
-		   versusEmbed.setTitle(dataInfo[rightCharacter][0]+" "+dataInfo[rightCharacter][1]+" versus "+dataInfo[leftCharacter][0]+" "+dataInfo[leftCharacter][1])
+		  const versusEmbed = new MessageEmbed()
+		   versusEmbed.setTitle(datainfo[rightCharacter][0]+" "+datainfo[rightCharacter][1]+" versus "+datainfo[leftCharacter][0]+" "+datainfo[leftCharacter][1])
 	   
 		   versusEmbed.addFields({name: "\u200B", value:"\u200B", inline: false})
 	   
@@ -41,15 +43,15 @@ module.exports = {
 	   
 		   if(winnerRound == rightCharacter){ //If the winner is the right character
 			 rightCharacterScore+=1; //We increase the score
-			 announcementWinner = dataInfo[rightCharacter][0]+" won the round"; //We say she won the round
+			 announcementWinner = datainfo[rightCharacter][0]+" won the round"; //We say she won the round
 		   } else if (winnerRound == leftCharacter){
 			 leftCharacterScore+=1;
-			 announcementWinner = dataInfo[leftCharacter][0]+" won the round";
+			 announcementWinner = datainfo[leftCharacter][0]+" won the round";
 		   } else { //Tie case
 			 announcementWinner = "It's a tie" //We just announce it's a tie
 		   }
 		   versusEmbed.addFields({name: "\u200B", value:"\u200B", inline: true})
-		   versusEmbed.addFields({name: dataInfo[rightCharacter][4]+"    height    "+dataInfo[leftCharacter][4], value:announcementWinner, inline: true})
+		   versusEmbed.addFields({name: datainfo[rightCharacter][4]+"    height    "+datainfo[leftCharacter][4], value:announcementWinner, inline: true})
 		   versusEmbed.addFields({name: "\u200B", value:"\u200B", inline: true})
 	   
 		   //Small jump
@@ -61,14 +63,14 @@ module.exports = {
 	   
 		   if(winnerRound == rightCharacter){
 			 rightCharacterScore+=1;
-			 announcementWinner = dataInfo[rightCharacter][0]+" won the round";
+			 announcementWinner = datainfo[rightCharacter][0]+" won the round";
 		   } else if (winnerRound == leftCharacter){
 			 leftCharacterScore+=1;
-			 announcementWinner = dataInfo[leftCharacter][0]+" won the round";
+			 announcementWinner = datainfo[leftCharacter][0]+" won the round";
 		   } else {
 			 announcementWinner = "It's a tie"
 		   }
-		   versusEmbed.addFields({name: dataInfo[rightCharacter][5][0]+"    bust    "+dataInfo[leftCharacter][5][0], value:announcementWinner, inline: true})
+		   versusEmbed.addFields({name: datainfo[rightCharacter][5][0]+"    bust    "+datainfo[leftCharacter][5][0], value:announcementWinner, inline: true})
 	   
 		   //Waist round
 	   
@@ -76,14 +78,14 @@ module.exports = {
 	   
 		   if(winnerRound == rightCharacter){
 			 rightCharacterScore+=1;
-			 announcementWinner = dataInfo[rightCharacter][0]+" won the round";
+			 announcementWinner = datainfo[rightCharacter][0]+" won the round";
 		   } else if (winnerRound == leftCharacter){
 			 leftCharacterScore+=1;
-			 announcementWinner = dataInfo[leftCharacter][0]+" won the round";
+			 announcementWinner = datainfo[leftCharacter][0]+" won the round";
 		   } else {
 			 announcementWinner = "It's a tie"
 		   }
-		   versusEmbed.addFields({name: dataInfo[rightCharacter][5][1]+"    waist    "+dataInfo[leftCharacter][5][1], value:announcementWinner, inline: true})
+		   versusEmbed.addFields({name: datainfo[rightCharacter][5][1]+"    waist    "+datainfo[leftCharacter][5][1], value:announcementWinner, inline: true})
 	   
 		   //Hips round
 	   
@@ -91,14 +93,14 @@ module.exports = {
 	   
 		   if(winnerRound == rightCharacter){
 			 rightCharacterScore+=1;
-			 announcementWinner = dataInfo[rightCharacter][0]+" won the round";
+			 announcementWinner = datainfo[rightCharacter][0]+" won the round";
 		   } else if (winnerRound == leftCharacter){
 			 leftCharacterScore+=1;
-			 announcementWinner = dataInfo[leftCharacter][0]+" won the round";
+			 announcementWinner = datainfo[leftCharacter][0]+" won the round";
 		   } else {
 			 announcementWinner = "It's a tie"
 		   }
-		   versusEmbed.addFields({name: dataInfo[rightCharacter][5][2]+"    hips    "+dataInfo[leftCharacter][5][2], value:announcementWinner, inline: true})
+		   versusEmbed.addFields({name: datainfo[rightCharacter][5][2]+"    hips    "+datainfo[leftCharacter][5][2], value:announcementWinner, inline: true})
 	   
 		   //Small jump
 	   
@@ -110,14 +112,14 @@ module.exports = {
 	   
 		   if(winnerRound == rightCharacter){
 			 rightCharacterScore+=1;
-			 announcementWinner = dataInfo[rightCharacter][0]+" won the round";
+			 announcementWinner = datainfo[rightCharacter][0]+" won the round";
 		   } else if (winnerRound == leftCharacter){
 			 leftCharacterScore+=1;
-			 announcementWinner = dataInfo[leftCharacter][0]+" won the round";
+			 announcementWinner = datainfo[leftCharacter][0]+" won the round";
 		   } else {
 			 announcementWinner = "It's a tie"
 		   }
-		   versusEmbed.addFields({name: dataInfo[rightCharacter][12][0][1]+"    Strength    "+dataInfo[leftCharacter][12][0][1], value:announcementWinner, inline:true})
+		   versusEmbed.addFields({name: datainfo[rightCharacter][12][0][1]+"    Strength    "+datainfo[leftCharacter][12][0][1], value:announcementWinner, inline:true})
 	   
 		   //Shinobi round
 	   
@@ -125,14 +127,14 @@ module.exports = {
 	   
 		   if(winnerRound == rightCharacter){
 			 rightCharacterScore+=1;
-			 announcementWinner = dataInfo[rightCharacter][0]+" won the round";
+			 announcementWinner = datainfo[rightCharacter][0]+" won the round";
 		   } else if (winnerRound == leftCharacter){
 			 leftCharacterScore+=1;
-			 announcementWinner = dataInfo[leftCharacter][0]+" won the round";
+			 announcementWinner = datainfo[leftCharacter][0]+" won the round";
 		   } else {
 			 announcementWinner = "It's a tie"
 		   }
-		   versusEmbed.addFields({name: dataInfo[rightCharacter][12][1][1]+"    Shinobi/Spiritual    "+dataInfo[leftCharacter][12][1][1], value:announcementWinner, inline:true})
+		   versusEmbed.addFields({name: datainfo[rightCharacter][12][1][1]+"    Shinobi/Spiritual    "+datainfo[leftCharacter][12][1][1], value:announcementWinner, inline:true})
 	   
 		   //Small Jump
 	   
@@ -144,14 +146,14 @@ module.exports = {
 	   
 		   if(winnerRound == rightCharacter){
 			 rightCharacterScore+=1;
-			 announcementWinner = dataInfo[rightCharacter][0]+" won the round";
+			 announcementWinner = datainfo[rightCharacter][0]+" won the round";
 		   } else if (winnerRound == leftCharacter){
 			 leftCharacterScore+=1;
-			 announcementWinner = dataInfo[leftCharacter][0]+" won the round";
+			 announcementWinner = datainfo[leftCharacter][0]+" won the round";
 		   } else {
 			 announcementWinner = "It's a tie"
 		   }
-		   versusEmbed.addFields({name: dataInfo[rightCharacter][12][2][1]+"    Intelligence    "+dataInfo[leftCharacter][12][2][1], value:announcementWinner, inline:true})
+		   versusEmbed.addFields({name: datainfo[rightCharacter][12][2][1]+"    Intelligence    "+datainfo[leftCharacter][12][2][1], value:announcementWinner, inline:true})
 	   
 		   //Agility round
 	   
@@ -159,14 +161,14 @@ module.exports = {
 	   
 		   if(winnerRound == rightCharacter){
 			 rightCharacterScore+=1;
-			 announcementWinner = dataInfo[rightCharacter][0]+" won the round";
+			 announcementWinner = datainfo[rightCharacter][0]+" won the round";
 		   } else if (winnerRound == leftCharacter){
 			 leftCharacterScore+=1;
-			 announcementWinner = dataInfo[leftCharacter][0]+" won the round";
+			 announcementWinner = datainfo[leftCharacter][0]+" won the round";
 		   } else {
 			 announcementWinner = "It's a tie"
 		   }
-		   versusEmbed.addFields({name: dataInfo[rightCharacter][12][3][1]+"    Agility    "+dataInfo[leftCharacter][12][3][1], value:announcementWinner, inline:true})
+		   versusEmbed.addFields({name: datainfo[rightCharacter][12][3][1]+"    Agility    "+datainfo[leftCharacter][12][3][1], value:announcementWinner, inline:true})
 	   
 		   //Small Jump
 	   
@@ -175,21 +177,21 @@ module.exports = {
 		 //Results announcement
 		 versusEmbed.addFields({name: "\u200B", value:"\u200B", inline: true})
 		 if(rightCharacterScore > leftCharacterScore){ //Right character wins
-		   versusEmbed.addFields({name:"Victory", value: dataInfo[rightCharacter][0]+" won with "+rightCharacterScore+" points🏆", inline: true})
-		   versusEmbed.setImage(dataInfo[leftCharacter][15][0])
+		   versusEmbed.addFields({name:"Victory", value: datainfo[rightCharacter][0]+" won with "+rightCharacterScore+" points🏆", inline: true})
+		   versusEmbed.setImage(datainfo[leftCharacter][15][0])
 		   versusEmbed.addFields({name: "\u200B", value:"\u200B", inline: true})
-		   message.channel.send({ embeds: [versusEmbed]})
+		   return interaction.reply({ embeds: [versusEmbed]})
 		 } else if(rightCharacterScore < leftCharacterScore){ //Left character wins
-		   versusEmbed.addFields({name:"Victory", value: dataInfo[leftCharacter][0]+" won with "+leftCharacterScore+" points🏆", inline: true})
-		   versusEmbed.setImage(dataInfo[rightCharacter][15][0])
+		   versusEmbed.addFields({name:"Victory", value: datainfo[leftCharacter][0]+" won with "+leftCharacterScore+" points🏆", inline: true})
+		   versusEmbed.setImage(datainfo[rightCharacter][15][0])
 		   versusEmbed.addFields({name: "\u200B", value:"\u200B", inline: true})
-		   message.channel.send({ embeds: [versusEmbed]})
+		   return interaction.reply({ embeds: [versusEmbed]})
 		 } else {
 		   versusEmbed.addFields({name: "End of the fight", value:"It's a tie with "+rightCharacterScore+" points.", inline: true})
-		   versusEmbed.setThumbnail(dataInfo[leftCharacter][15][0])
-		   versusEmbed.setImage(dataInfo[rightCharacter][15][0])
+		   versusEmbed.setThumbnail(datainfo[leftCharacter][15][0])
+		   versusEmbed.setImage(datainfo[rightCharacter][15][0])
 		   versusEmbed.addFields({name: "\u200B", value:"\u200B", inline: true})
-		   message.channel.send({ embeds: [versusEmbed]})
+		   return interaction.reply({ embeds: [versusEmbed]})
 		 }
 	},
 };

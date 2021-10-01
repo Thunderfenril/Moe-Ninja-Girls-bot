@@ -2,9 +2,9 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('test')
-		.setDescription('String to see if the bot answer'),
+		.setName('walktrough')
+		.setDescription('Walktrough command'),
 	async execute(interaction) {
-        return interaction.reply('Yes ?');
+		return interaction.reply('Pong!');
 	},
 };

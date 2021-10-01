@@ -5,6 +5,6 @@ module.exports = {
 		.setName('hug')
 		.setDescription('Send a string'),
 	async execute(interaction) {
-		await interaction.reply("Moshi moshi, Police desu ka ?");
+		return interaction.reply("Moshi moshi, Police desu ka ?");
 	},
 };

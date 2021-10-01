@@ -1,12 +1,14 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const dataInfo = require('../array/data.js');
+const datainfo = require('../array/data.js');
 const func = require("../function/function.js")
+
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('birthday')
 		.setDescription('Send a string related to next birthday'),
 	async execute(interaction) {
+		const args = interaction.data.options;
 		const month=date.getMonth(); //We retrieve the current day, and we save it in a var
   		const day=date.getDate(); //We retrieve the current month as an int from 0 to 11, and we save it in a var
   		const year=date.getFullYear(); //We retrieve the current year and we save it in a var
@@ -20,16 +22,16 @@ module.exports = {
   		  if((month==11) && (day>6) ){ //Test to see if we are the 7th December or after, there is no birthday after the 6th December atm
   		    daysLeft=func.daysLeftInMonth(day, month, year); //We calculate how many days are left in this month with this function
   		    daysLeftBeforeBirthday = daysLeft+23; //We send add the 23 days of the first anniversary of the year
-  		    message.channel.send("There is "+daysLeftBeforeBirthday+" days before Yamabuki birthday !");
+  		    return interaction.reply("There is "+daysLeftBeforeBirthday+" days before Yamabuki birthday !");
   		  }
 		
-  		  for (counterBirthday=0; counterBirthday<dataInfo.length; counterBirthday++) {
-  		    if (((dataInfo[counterBirthday][2][1]==(month+1))&&(dataInfo[counterBirthday][2][0]>=day))||(dataInfo[counterBirthday][2][1]==(month+2))) { //We look for girls that have their birthday after the current day
+  		  for (counterBirthday=0; counterBirthday<datainfo.length; counterBirthday++) {
+  		    if (((datainfo[counterBirthday][2][1]==(month+1))&&(datainfo[counterBirthday][2][0]>=day))||(datainfo[counterBirthday][2][1]==(month+2))) { //We look for girls that have their birthday after the current day
   		      var tempArray=[]; //We create a temporary array, where we will stock ...
-  		      tempArray.push(dataInfo[counterBirthday][0]); //... the name of the girl...
-  		      tempArray.push(dataInfo[counterBirthday][2]); //... and the date of her birthday
+  		      tempArray.push(datainfo[counterBirthday][0]); //... the name of the girl...
+  		      tempArray.push(datainfo[counterBirthday][2]); //... and the date of her birthday
   		      birthdayArray.push(tempArray); //Then we push it in the cetral array
-  		      if(dataInfo[counterBirthday][2][1]==(month+1)) { //We do a small test if the girl has her birthday this month or not
+  		      if(datainfo[counterBirthday][2][1]==(month+1)) { //We do a small test if the girl has her birthday this month or not
   		        testSameMonth=1; //If yes, then we change the value to 1
   		      }
   		    }
@@ -60,16 +62,16 @@ module.exports = {
   		    daysLeftBeforeBirthday = birthdayArray[indexBirthday][1][0] + daysLeft; //...and we add it to the day of the birthday
   		  }
 		
-  		  message.channel.send("There is "+daysLeftBeforeBirthday+" days before "+birthdayArray[indexBirthday][0]+" birthday!"); //Message that will be sent, where the numbers of days is saved in each category, and the name is looked in the array
+  		  return interaction.reply("There is "+daysLeftBeforeBirthday+" days before "+birthdayArray[indexBirthday][0]+" birthday!"); //Message that will be sent, where the numbers of days is saved in each category, and the name is looked in the array
   		 } else {
   		   let birthdayCandidate = func.givePositionIndex(args[0]);
-  		   if(birthdayCandidate===-1) return message.channel.send("Are you sure you didn't made a mistake in the name ?")
+  		   if(birthdayCandidate===-1) {return interaction.reply("Are you sure you didn't made a mistake in the name ?")}
   		   let todayDate = new Date(year, month, day); //Today date
-  		   let girlDate = new Date(year, dataInfo[birthdayCandidate][2][1]-1, dataInfo[birthdayCandidate][2][0]);
+  		   let girlDate = new Date(year, datainfo[birthdayCandidate][2][1]-1, datainfo[birthdayCandidate][2][0]);
 		
-  		   if((dataInfo[birthdayCandidate][2][1] == month +1) && (dataInfo[birthdayCandidate][2][0] < day)) {
+  		   if((datainfo[birthdayCandidate][2][1] == month +1) && (datainfo[birthdayCandidate][2][0] < day)) {
   		    girlDate.setFullYear(girlDate.getFullYear() +1)
-  		   } else if (dataInfo[birthdayCandidate][2][1] < month+1) {
+  		   } else if (datainfo[birthdayCandidate][2][1] < month+1) {
   		    girlDate.setFullYear(girlDate.getFullYear() +1)
   		   }
 		 
@@ -77,7 +79,7 @@ module.exports = {
 		 
   		   let numberOfDaysLeft = Math.floor((girlDate.getTime() - todayDate.getTime() )/ oneDay)
 		 
-  		   message.channel.send("There is "+numberOfDaysLeft+" days left before "+dataInfo[birthdayCandidate][0]+" birthday.")
+  		   return interaction.reply("There is "+numberOfDaysLeft+" days left before "+datainfo[birthdayCandidate][0]+" birthday.")
   		 }
 	},
 };

@@ -5,6 +5,6 @@ module.exports = {
 		.setName('gacha')
 		.setDescription('Send a string'),
 	async execute(interaction) {
-		await interaction.reply("Rate up is a lie");
+		return interaction.reply("Rate up is a lie");
 	},
 };

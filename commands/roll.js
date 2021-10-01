@@ -1,6 +1,8 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const {MessageEmbed} = require('discord.js');
 
-const dataRoll = require("../array/dataRoll.js");
+
+const dataroll = require("../array/dataRoll.js");
 const func = require("../function/function.js")
 
 module.exports = {
@@ -61,12 +63,12 @@ module.exports = {
                 switch (category) {
                   case "tool":
                   case "tools":
-                    randomObject= Math.floor(Math.random()*dataRoll[0][indexRarity].length); //Random number between 0 and the number of item in the array
-                    tabResult.push(dataRoll[0][indexRarity][randomObject]); //We push the texte in the array of the result
+                    randomObject= Math.floor(Math.random()*dataroll[0][indexRarity].length); //Random number between 0 and the number of item in the array
+                    tabResult.push(dataroll[0][indexRarity][randomObject]); //We push the texte in the array of the result
                     break;
                   case "body":
-                    randomObject= Math.floor(Math.random()*dataRoll[1][indexRarity].length); //Random number between 0 and the number of item in the array
-                    tabResult.push(dataRoll[1][indexRarity][randomObject]); //We push the texte in the array of the result
+                    randomObject= Math.floor(Math.random()*dataroll[1][indexRarity].length); //Random number between 0 and the number of item in the array
+                    tabResult.push(dataroll[1][indexRarity][randomObject]); //We push the texte in the array of the result
                     break;
       
                 }
@@ -76,7 +78,7 @@ module.exports = {
               if(numberOfRoll==10){
                 func.shuffle(tabResult); //We shuffle if we made 10 rolls
               }
-              const embedRoll = new Discord.MessageEmbed()
+              const embedRoll = new MessageEmbed()
                 embedRoll.setAuthor("Salt Dispenser")
                 embedRoll.setTitle("Result of your roll")
                 embedRoll.setThumbnail(data[randomCharacter][13])
@@ -84,7 +86,7 @@ module.exports = {
                 for(counterRoll=0; counterRoll < tabResult.length; counterRoll++){ //We will create as many fields as there is of item in tabResult
                   embedRoll.addFields({name: "Roll number "+(counterRoll+1)+":", value: tabResult[counterRoll]})
                 }
-              message.channel.send({ embeds: [embedRoll]})
+              return interaction.reply({ embeds: [embedRoll]})
             }
           }
 	},
