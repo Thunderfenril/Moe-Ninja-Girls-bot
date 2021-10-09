@@ -10,7 +10,7 @@ module.exports = {
 		.setName('versus')
 		.setDescription('Embed that compare 2 characters'),
 	async execute(interaction) {
-		if (args[1] === undefined) { //If the second argument is empty, then we reply that he forgot to add an opponent
+		if ('undefined' === typeof args[1]) { //If the second argument is empty, then we reply that he forgot to add an opponent
 			return message.reply({content: "You didn't provided an opponent baka !", allowedMentions: { repliedUser: true}});
 		  }
 	   
