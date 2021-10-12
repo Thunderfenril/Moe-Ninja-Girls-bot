@@ -8,13 +8,24 @@ const func = require("../function/function.js")
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('versus')
-		.setDescription('Embed that compare 2 characters'),
+		.setDescription('Embed that compare 2 characters')
+		.addStringOption(option =>
+			option.setName('Right side')
+				.setDescription('The name of the person on the right side')
+				.setRequired(true))
+		.addStringOption(option =>
+			option.setName('Left side')
+				.setDescription('The name of the person on the left side')
+				.setRequired(true)),
 	async execute(interaction) {
 		if ('undefined' === typeof args[1]) { //If the second argument is empty, then we reply that he forgot to add an opponent
 			return message.reply({content: "You didn't provided an opponent baka !", allowedMentions: { repliedUser: true}});
 		  }
+
 	   
-		  let rightCharacter = func.givePositionIndex(args[1]); //We save the position of 1 of the character in a variable
+		  let rightCharacterName = interaction.options.getString('Right side');
+		  let leftCharacterName = interaction.options.getString('Left side');
+		  let rightCharacter = func.givePositionIndex(rightCharacterName); //We save the position of 1 of the character in a variable
 		  let leftCharacter = func.givePositionIndex(args[0]); //We save the position of the second character in another variable
 	   
 		  if((rightCharacter === -1) || (leftCharacter === -1)){ //We do a test to see if one of the character hasn't been found
