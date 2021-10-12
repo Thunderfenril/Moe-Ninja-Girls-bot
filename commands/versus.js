@@ -10,24 +10,26 @@ module.exports = {
 		.setName('versus')
 		.setDescription('Embed that compare 2 characters')
 		.addStringOption(option =>
-			option.setName('Right side')
+			option.setName('right')
 				.setDescription('The name of the person on the right side')
 				.setRequired(true))
 		.addStringOption(option =>
-			option.setName('Left side')
+			option.setName('left')
 				.setDescription('The name of the person on the left side')
 				.setRequired(true)),
 	async execute(interaction) {
-		if ('undefined' === typeof args[1]) { //If the second argument is empty, then we reply that he forgot to add an opponent
+
+		let rightCharacterName = interaction.options.getString('right');
+		let leftCharacterName = interaction.options.getString('left');
+
+		let rightCharacter = func.givePositionIndex(rightCharacterName); //We save the position of 1 of the character in a variable
+		let leftCharacter = func.givePositionIndex(leftCharacterName); //We save the position of the second character in another variable
+
+
+		if ('undefined' === typeof rightCharacter) { //If the second argument is empty, then we reply that he forgot to add an opponent
 			return message.reply({content: "You didn't provided an opponent baka !", allowedMentions: { repliedUser: true}});
 		  }
 
-	   
-		  let rightCharacterName = interaction.options.getString('Right side');
-		  let leftCharacterName = interaction.options.getString('Left side');
-		  let rightCharacter = func.givePositionIndex(rightCharacterName); //We save the position of 1 of the character in a variable
-		  let leftCharacter = func.givePositionIndex(args[0]); //We save the position of the second character in another variable
-	   
 		  if((rightCharacter === -1) || (leftCharacter === -1)){ //We do a test to see if one of the character hasn't been found
 		   return interaction.reply("You made an error in one of the name");
 		  } else if (((rightCharacter == 2) || (leftCharacter == 2)) || ((rightCharacter == 3) || (leftCharacter == 3)) || ((rightCharacter == 8) || (leftCharacter == 8)) || ((rightCharacter == 9) || (leftCharacter == 9)) || ((rightCharacter == 10) || (leftCharacter == 10))) { //Temporary stop until we get the info on the RPG cast
