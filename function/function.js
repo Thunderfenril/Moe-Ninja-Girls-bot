@@ -8,6 +8,8 @@ module.exports = {
     versusFight,
 }
 
+const data = require("../array/data")
+
 /*
   Function: daysLeftInMonth
   Parameter: 3 int that correspond to the current day, the month-1 and the year
