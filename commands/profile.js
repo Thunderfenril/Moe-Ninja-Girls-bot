@@ -8,7 +8,11 @@ const func = require("../function/function.js");
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('profile')
-		.setDescription('Send an embed with the information of a girl'),
+		.setDescription('Send an embed with the information of a girl')
+    .addStringOption(option =>
+      option.setName('name')
+        .setDescription('Name of the person you want the profile')
+        .setRequired(true)),
 	async execute(interaction) {
     
 		if (!args.length) { //Test if there is an argument or not
