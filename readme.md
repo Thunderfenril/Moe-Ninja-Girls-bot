@@ -14,6 +14,7 @@
     08. Need to change the way the test are done _(value == 'variable')_
     09. Change the local variable to the format: _name
     10. Rework the dead command _Seems like same person can be added multiple time_
+    11. Change the revive command _People can revive themselves rn_
 
 ### Data
 
