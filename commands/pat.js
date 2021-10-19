@@ -9,9 +9,8 @@ module.exports = {
             .setDescription("The person you want to be patted")
             .setRequired(true)),
 	async execute(interaction) {
-		let target = interaction.options.getUserOption("target");
+		let target = interaction.options.getUser("target");
 
-		interaction.reply("<a:CyPat:655100389779308565>");
-		return interaction.send("*Pat at "+ target + "*")
+		return interaction.reply("<a:CyPat:655100389779308565>\n*Pat at <@"+ target + ">*")
 	},
 };
