@@ -8,7 +8,8 @@ module.exports = {
     versusFight,
 }
 
-const data = require("../array/data")
+const data = require("../array/data");
+const ranking = require("../commands/ranking");
 
 /*
   Function: daysLeftInMonth
@@ -93,11 +94,13 @@ function givePositionRanking(name, category){
   switch (category) {
     case "height":
       for(counterRankingArray = 0; counterRankingArray<data.length; counterRankingArray++){ //Adding the data of the height in the array
-        rankingArray.push(data[counterRankingArray][4])
+        if(0 != data[counterRankingArray][4]) {
+          rankingArray.push(data[counterRankingArray][4])
+        }
       }
 
       rankingArray.sort(function(a, b){return b-a}); //We sort the array
-      for(counterIndexRanking=rankingArray; counterIndexRanking > 0; counterIndexRanking--){ //We do a for loop from the end
+      for(counterIndexRanking=rankingArray.length-1; counterIndexRanking >= 0; counterIndexRanking--){ //We do a for loop from the end
         if(data[indexGirl][4]==rankingArray[counterIndexRanking]){
           index=counterIndexRanking;
         }
@@ -111,7 +114,7 @@ function givePositionRanking(name, category){
       }
 
       rankingArray.sort(function(a, b){return b-a});
-      for(counterIndexRanking=rankingArray; counterIndexRanking > 0; counterIndexRanking--){
+      for(counterIndexRanking=rankingArray.length; counterIndexRanking > 0; counterIndexRanking--){
         if(data[indexGirl][5][0]==rankingArray[counterIndexRanking]){
           index=counterIndexRanking;
         }
@@ -125,7 +128,7 @@ function givePositionRanking(name, category){
       }
 
       rankingArray.sort(function(a, b){return b-a});
-      for(counterIndexRanking=rankingArray; counterIndexRanking > 0; counterIndexRanking--){
+      for(counterIndexRanking=rankingArray.length; counterIndexRanking > 0; counterIndexRanking--){
         if(data[indexGirl][5][1]==rankingArray[counterIndexRanking]){
           index=counterIndexRanking;
         }
@@ -139,7 +142,7 @@ function givePositionRanking(name, category){
       }
 
       rankingArray.sort(function(a, b){return b-a});
-      for(counterIndexRanking=rankingArray; counterIndexRanking > 0; counterIndexRanking--){
+      for(counterIndexRanking=rankingArray.length; counterIndexRanking > 0; counterIndexRanking--){
         if(data[indexGirl][5][2]==rankingArray[counterIndexRanking]){
           index=counterIndexRanking;
         }

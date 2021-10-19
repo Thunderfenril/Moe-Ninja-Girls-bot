@@ -24,19 +24,19 @@ module.exports = {
               embedRanking.addFields({name: "__Physical information:__", value:"\u200B"})
       
               positionRank = func.givePositionRanking(datainfo[indexGirl][0], "height")
-              embedRanking.addFields({name: "Height:", value: positionRank+"th on "+data.length, inline: true})
+              embedRanking.addFields({name: "Height:", value: positionRank+"th on "+datainfo.length, inline: true})
       
       
               positionRank = func.givePositionRanking(datainfo[indexGirl][0], "bust")
-              embedRanking.addFields({name: "Bust:", value: positionRank+"th on "+data.length, inline: true})
+              embedRanking.addFields({name: "Bust:", value: positionRank+"th on "+datainfo.length, inline: true})
       
               embedRanking.addFields({name:"\u200B", value:"\u200B", inline:true})
       
               positionRank = func.givePositionRanking(datainfo[indexGirl][0], "waist")
-              embedRanking.addFields({name: "Waist:", value: positionRank+"th on "+data.length, inline: true})
+              embedRanking.addFields({name: "Waist:", value: positionRank+"th on "+datainfo.length, inline: true})
       
               positionRank = func.givePositionRanking(datainfo[indexGirl][0], "hips")
-              embedRanking.addFields({name: "Hips:", value: positionRank+"th on "+data.length, inline: true})
+              embedRanking.addFields({name: "Hips:", value: positionRank+"th on "+datainfo.length, inline: true})
       
               embedRanking.addFields({name: "\u200B", value: "\u200B"})
               embedRanking.addFields({name:"__Personal statistic:__", value:"\u200B"})
