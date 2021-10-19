@@ -12,11 +12,12 @@ module.exports = {
 			.setDescription("Name of the character you wish to see the info")
 			.setRequired(false)),
 	async execute(interaction) {
-		const args = interaction.options.getString(name);
+		const args = interaction.options.getString('name');
+		const date = new Date();
 		const month=date.getMonth(); //We retrieve the current day, and we save it in a var
   		const day=date.getDate(); //We retrieve the current month as an int from 0 to 11, and we save it in a var
   		const year=date.getFullYear(); //We retrieve the current year and we save it in a var
-		  if ('undefined' === typeof args[0]) {
+		  if (null === args) {
   		  let testSameMonth = -1; //We create a var that will be used to indicate if a girl in the list has a birthday this month, and after the current day
   		  var indexBirthday = -1; //Index used at the end to indicate in the array the girl with the next birthday
   		  var tempDayVar = 100; //Var used to calculate which girl has a day that is  near the start of the month, or of the current day
@@ -62,6 +63,9 @@ module.exports = {
   		        indexBirthday=counterBirthdayDifferentMonth;
   		      }
   		    }
+			  console.log(day)
+			  console.log(month)
+			  console.log(year)
   		    daysLeft = func.daysLeftInMonth(day, month, year); //We calculate how much days is left in this month...
   		    daysLeftBeforeBirthday = birthdayArray[indexBirthday][1][0] + daysLeft; //...and we add it to the day of the birthday
   		  }
@@ -71,7 +75,7 @@ module.exports = {
 		
   		  return interaction.reply("There is "+daysLeftBeforeBirthday+" days before "+birthdayArray[indexBirthday][0]+" birthday!"); //Message that will be sent, where the numbers of days is saved in each category, and the name is looked in the array
   		 } else {
-  		   let birthdayCandidate = func.givePositionIndex(args[0]);
+  		   let birthdayCandidate = func.givePositionIndex(args);
   		   if(birthdayCandidate===-1) {return interaction.reply("Are you sure you didn't made a mistake in the name ?")}
   		   let todayDate = new Date(year, month, day); //Today date
   		   let girlDate = new Date(year, datainfo[birthdayCandidate][2][1]-1, datainfo[birthdayCandidate][2][0]);
