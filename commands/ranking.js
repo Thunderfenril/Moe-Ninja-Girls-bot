@@ -8,14 +8,14 @@ const func = require("../function/function.js");
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('ranking')
-		.setDescription('Rank under a category'),
+		.setDescription('Rank under a category')
+    .addStringOption(option =>
+      option.setName('girl')
+      .setDescription("The name of the girl")
+      .setRequired(true)),
 	async execute(interaction) {
-		if (!args.length) { //Test if there is an argument or not
-            return interaction.reply( //Send an reply to the author of the command call
-              `You didn't provide any arguments, baka, ${message.author}!`
-            );
-          }
-          let indexGirl = func.givePositionIndex(args[0]);
+          let girl = interaction.options.getString('girl');
+          let indexGirl = func.givePositionIndex(girl);
       
           if(indexGirl != -1){
             const embedRanking = new MessageEmbed()
