@@ -16,6 +16,7 @@
     10. Rework the dead command _Seems like same person can be added multiple time_
     11. Change the revive command _People can revive themselves rn_
     12. Typo for ninjutsu _eat to earth_
+    13. Edit the fm return command
 
 ### Data
 
