@@ -24,6 +24,7 @@
     2. Add the future self ?
     3. Update the help
     4. Update the changelog
+    5. Rewrite the comments in all the files
 
 ## Done
 
