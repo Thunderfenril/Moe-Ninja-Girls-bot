@@ -55,7 +55,7 @@ module.exports = {
 				string = "You used a lightning ninujtsu on "+target.join(' ')+".\n"+target.join(' ')+" got shocked to func.death.";
 				func.death(isMention);
 			  } else if (randomNinjutsu < 149) {
-				string = "You used an eart jutsu on "+target.join(' ')+".\n"+target.join(' ')+" got crushed to func.death by the rocks.";
+				string = "You used an earth jutsu on "+target.join(' ')+".\n"+target.join(' ')+" got crushed to func.death by the rocks.";
 				func.death(isMention);
 			  } else {
 				string = "You used a special ninjutsu.\nNothing happen, you look like an idiot."
@@ -102,7 +102,7 @@ module.exports = {
 				string = "You used a lightning ninujtsu on "+target.join(' ')+", but you made a mistake.\nYou got shocked to func.death.";
 				deadList.push(interaction.member.id)
 			  } else if (randomNinjutsu < 149) {
-				string = "You used an eart jutsu on "+target.join(' ')+", but you made a mistake.\nYou got crushed to func.death by the rocks.";
+				string = "You used an earth jutsu on "+target.join(' ')+", but you made a mistake.\nYou got crushed to func.death by the rocks.";
 				deadList.push(interaction.member.id)
 			  } else {
 				string = "You used a special ninjutsu.\nNothing happen, you look like an idiot."
