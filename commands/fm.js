@@ -92,7 +92,7 @@ module.exports = {
 		if (numberOfRoundWithJuice > stageLimit) {
 			return interaction.reply("You won't be able to beat the stage, you will need "+ (numberOfRoundWithJuice - stageLimit) + " more round to beat it.");
 		} else if (numberOfRoundWithoutJuice > stageLimit) {
-			return interaction.reply("You won't be able to beat the stage without juice. You will need "+ (numberOfRoundWithoutJuice - stageLimit)+ " more round to beat it.\nTry to use juice, you will need "+ numberOfRoundWithJuice+" round to beat the stage.");
+			return interaction.reply("You won't be able to beat the stage without juice. You will need "+ numberOfRoundWithoutJuice+ " round to beat it.\nTry to use juice, you will need "+ numberOfRoundWithJuice+" round to beat the stage.");
 		} else {
 			return interaction.reply("You can beat the stage in "+numberOfRoundWithoutJuice+" round without juice.\nIf you use juice, you will beat it in "+numberOfRoundWithJuice+" rounds instead.");
 		}
