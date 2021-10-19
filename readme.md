@@ -15,7 +15,10 @@
     09. Change the local variable to the format: _name
     10. Rework the dead command _Seems like same person can be added multiple time_
     11. Change the revive command _People can revive themselves rn_
-    13. Edit the fm return command _meaning, deleting useless one and remaking the send_
+    13. Edit the fm return command _redo the calcul_
+    14. Seems there is a problem with the birthday command
+    15. Fix walkthrough, so no error show when using the commands
+    16. Fix walkthrough, so it works for 3.5 and 22.5
 
 ### Data
 
@@ -34,6 +37,7 @@
 
     01. Github
     02. Typo for ninjutsu _eat to earth_
+    03. Profile seems to have a problem with .addFields _Problem was useless bracket in data.js_
 
 ### On the data
 
