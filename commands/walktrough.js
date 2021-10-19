@@ -43,9 +43,9 @@ module.exports = {
 		let arraySeason=-1;
 		for(counter; counter < walkthrougharray.length; counter++) {
 			if(walkthrougharray[counter][0] == season) {
-				if((135==season && 13.5 == walkthrougharray[counter][0]) || (225==season && 22.5 == walkthrougharray[counter][0])) {
-					arraySeason = counter;
-				}
+				arraySeason = counter;
+			}
+			if((135==season && 13.5 == walkthrougharray[counter][0])|| (225==season && 22.5 == walkthrougharray[counter][0])) {
 				arraySeason = counter;
 			}
 		}
@@ -53,6 +53,7 @@ module.exports = {
 		if(-1 == arraySeason) {
 			interaction.reply("You must have made an error in the season you selected.\n*Big thanks to the owner of the tumblr blog that allowed me to use his data*");
 		} else {
+			interaction.reply("Walktrough sent")
 			return interaction.user.send(walkthrougharray[arraySeason][1]);
 		}
 	},

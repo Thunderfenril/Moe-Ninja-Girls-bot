@@ -16,8 +16,6 @@
     10. Rework the dead command _Seems like same person can be added multiple time_
     11. Change the revive command _People can revive themselves rn_
     13. Edit the fm return command _redo the calcul_
-    14. Fix walkthrough, so no error show when using the commands
-    15. Fix walkthrough, so it works for 3.5 and 22.5
 
 ### Data
 
@@ -38,6 +36,8 @@
     02. Typo for ninjutsu _eat to earth_
     03. Profile seems to have a problem with .addFields _Problem was useless bracket in data.js_
     04. Seems there is a problem with the birthday command _Problems of args[0], typeof, etc__
+    05. Fix walkthrough, so no error show when using the commands
+    06. Fix walkthrough, so it works for 3.5 and 22.5
 
 ### On the data
 
