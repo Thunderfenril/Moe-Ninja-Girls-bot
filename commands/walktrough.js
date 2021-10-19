@@ -7,31 +7,45 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('walktrough')
 		.setDescription('Walktrough command')
-		.addNumberOption(option =>
+		.addIntegerOption(option =>
 			option.setName("chapter")
-			.setDescription("The number of the season you want the walkthrough. The first season of the TCY is 31")
+			.setDescription("The number of the season you want the walkthrough. TCY start at 31. 3.5 is 135; 22.5 is 225")
 			.setRequired(true)),
 	async execute(interaction) {
-		let season = interaction.options.getNumber('chapter');
+		let season = interaction.options.getInteger('chapter');
 
 		if(0 == season) {
 			const walkthroughEmbed = new MessageEmbed()
 				walkthroughEmbed.setTitle("Summary of all the season")
-				for (let index = 0; index < walkthrougharray.length; index++) {
-					walkthroughEmbed.addFields({name: "\u200B", value: "[season "+index+"]("+walkthrougharray[index][1]+")", inline: true})
+				for (let index = 0; index < Math.ceil(walkthrougharray.length/2); index++) {
+					walkthroughEmbed.addFields({name: "\u200B", value: "[season "+walkthrougharray[index][0]+"]("+walkthrougharray[index][1]+")", inline: true})
 
-					if(0 = index%3 && index > 0){
+					if(0 == index%3){
 						walkthroughEmbed.addFields({name: "\u200B", value: "\u200B", inline: false});
 					}
 
 				}
-			return interaction.user.send({embeds: [walkthroughEmbed]});
+			const walkthroughEmbed2 = new MessageEmbed()
+			for (let index = Math.ceil(walkthrougharray.length/2); index < walkthrougharray.length; index++) {
+				console.log("Chapter :"+index)
+				walkthroughEmbed2.addFields({name: "\u200B", value: "[season "+walkthrougharray[index][0]+"]("+walkthrougharray[index][1]+")", inline: true})
+
+				if(0 == index%3){
+					walkthroughEmbed2.addFields({name: "\u200B", value: "\u200B", inline: false});
+				}
+
+			}
+			interaction.user.send({embeds: [walkthroughEmbed]});
+			return interaction.user.send({embeds: [walkthroughEmbed2]});
 		}
 
 		let counter = 0;
 		let arraySeason=-1;
 		for(counter; counter < walkthrougharray.length; counter++) {
 			if(walkthrougharray[counter][0] == season) {
+				if((135==season && 13.5 == walkthrougharray[counter][0]) || (225==season && 22.5 == walkthrougharray[counter][0])) {
+					arraySeason = counter;
+				}
 				arraySeason = counter;
 			}
 		}
@@ -39,7 +53,7 @@ module.exports = {
 		if(-1 == arraySeason) {
 			interaction.reply("You must have made an error in the season you selected.\n*Big thanks to the owner of the tumblr blog that allowed me to use his data*");
 		} else {
-			interaction.user.send(walkthrougharray[arraySeason][1]);
+			return interaction.user.send(walkthrougharray[arraySeason][1]);
 		}
 	},
 };

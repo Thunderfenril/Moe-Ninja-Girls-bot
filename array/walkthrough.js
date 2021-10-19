@@ -7,7 +7,7 @@ module.exports = [
     [6, 'https://moeninjagirls.tumblr.com/post/161274774624/walkthrough-season-6-updating'],
     [7, 'https://moeninjagirls.tumblr.com/post/162921645274/walkthrough-season-7-updating'],
     [8, 'https://moeninjagirls.tumblr.com/post/164822889504/walkthrough-season-8-updating'],
-    [3.5, 'https://moeninjagirls.tumblr.com/post/166484082124/walkthrough-season-35-updating'],
+    [13.5, 'https://moeninjagirls.tumblr.com/post/166484082124/walkthrough-season-35-updating'],
     [9, 'https://moeninjagirls.tumblr.com/post/168028544959/walkthrough-season-9-updating'],
     [10, 'https://moeninjagirls.tumblr.com/post/169869203079/walkthrough-season-10-updating'],
     [11, 'https://moeninjagirls.tumblr.com/post/171401149774/walkthrough-season-11-updating'],
