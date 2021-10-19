@@ -5,44 +5,44 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('fm')
 		.setDescription('The fight master command')
-		.setIntegerOption(option =>
+		.addIntegerOption(option =>
 			option.setName("stage")
 			.setDescription("Select the stage. Final is 10")
 			.setRequired(true)
-			.addChoice(1, "Stage 1")
-			.addChoice(2, "Stage 2")
-			.addChoice(3, "Stage 3")
-			.addChoice(4, "Stage 4")
-			.addChoice(5, "Stage 5")
-			.addChoice(6, "Stage 6")
-			.addChoice(7, "Stage 7")
-			.addChoice(8, "Stage 8")
-			.addChoice(9, "Stage 9")
-			.addChoice(10, "Final stage"))
-		.setStringOption(option =>
+			.addChoice("Stage 1", 1)
+			.addChoice("Stage 2", 2)
+			.addChoice("Stage 3", 3)
+			.addChoice("Stage 4", 4)
+			.addChoice("Stage 5", 5)
+			.addChoice("Stage 6", 6)
+			.addChoice("Stage 7", 7)
+			.addChoice("Stage 8", 8)
+			.addChoice("Stage 9", 9)
+			.addChoice("Final stage", 10))
+		.addStringOption(option =>
 			option.setName("weakness")
 			.setDescription("The weakness of the stage")
 			.setRequired(true)
-			.addChoice("fire")
-			.addChoice("ice")
-			.addChoice("thunder"))
-		.setIntegerOption(option =>
+			.addChoice("The stage is weak to fire", "fire")
+			.addChoice("The stage is weak to ice", "ice")
+			.addChoice("The stage is weak to thunder", "thunder"))
+		.addIntegerOption(option =>
 			option.setName("fire")
 			.setDescription("The value of your fire power")
 			.setRequired(true))
-		.setIntegerOption(option =>
+		.addIntegerOption(option =>
 			option.setName("ice")
 			.setDescription("The value of your ice power")
 			.setRequired(true))
-		.setIntegerOption(option =>
+		.addIntegerOption(option =>
 			option.setName("thunder")
 			.setDescription("The value of your thunder power")
 			.setRequired(true))
-		.setIntegerOption(option =>
+		.addIntegerOption(option =>
 			option.setName("shuriken")
 			.setDescription("The number of shuriken you own")
 			.setRequired(true))
-		.setIntegerOption(option =>
+		.addIntegerOption(option =>
 			option.setName("level")
 			.setDescription("The current level of your account")
 			.setRequired(true)),
