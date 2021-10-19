@@ -6,9 +6,13 @@ const func = require("../function/function.js")
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('birthday')
-		.setDescription('Send a string related to next birthday'),
+		.setDescription('Send a string related to next birthday')
+		.addStringOption(option =>
+			option.setName('name')
+			.setDescription("Name of the character you wish to see the info")
+			.setRequired(false)),
 	async execute(interaction) {
-		const args = interaction.data.options;
+		const args = interaction.options.getString(name);
 		const month=date.getMonth(); //We retrieve the current day, and we save it in a var
   		const day=date.getDate(); //We retrieve the current month as an int from 0 to 11, and we save it in a var
   		const year=date.getFullYear(); //We retrieve the current year and we save it in a var
