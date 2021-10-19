@@ -16,18 +16,25 @@
     10. Rework the dead command _Seems like same person can be added multiple time_
     11. Change the revive command _People can revive themselves rn_
     12. Typo for ninjutsu _eat to earth_
-    13. Edit the fm return command
+    13. Edit the fm return command _meaning, deleting useless one and remaking the send_
 
 ### Data
 
-    1. Check the burst and add if missing
-    2. Add the future self ?
-    3. Update the help
-    4. Update the changelog
-    5. Rewrite the comments in all the files
+    01. Check the burst and add if missing
+    02. Add the future self ?
+    03. Update the help
+    04. Update the changelog
+    05. Rewrite the comments in all the files
+    06. Add the contributing.md file
+    07. Add the guideline.md file
+    08. Licence I think
 
 ## Done
 
-### On code
+### On the code
 
-    1.Github
+    01. Github
+
+### On the data
+
+    00. Nothing for now
