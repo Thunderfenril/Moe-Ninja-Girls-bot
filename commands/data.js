@@ -8,9 +8,16 @@ const datainfo = require("../array/data");
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('datainfo')
-		.setDescription('Give info on the height and 3 sizes'),
+		.setDescription('Give info on the height and 3 sizes')
+    .addStringOption(option =>
+      option.setName('category')
+      .setDescription("The category you wish to see the ranking.")
+      .setRequired(false)),
 	async execute(interaction) {
-		if (args[0]==="height") {
+
+    let category = interaction.options.getString('category');
+
+		if (category==="height") {
             datainfo.sort(function(a,b){return b[4]-a[4]}); //We sort the array based on the height
             let embedHeight = new MessageEmbed()
           embedHeight.setTitle("Ranking based on the height") //We create the title for the embed
@@ -20,7 +27,7 @@ module.exports = {
     
         return interaction.reply({ embeds: [embedHeight]})
     
-        } else if (args[0]=="bust") {
+        } else if (category=="bust") {
             datainfo.sort(function(a,b){return b[5][0]-a[5][0]});
             let embedBust = new MessageEmbed()
           embedBust.setTitle("Ranking based on the bust")
@@ -29,7 +36,7 @@ module.exports = {
           }
         return interaction.reply({ embeds: [embedBust]});
     
-        } else if (args[0]=="waist") {
+        } else if (category=="waist") {
             datainfo.sort(function(a,b){return b[5][1]-a[5][1]});
         let embedWaist = new MessageEmbed()
           embedWaist.setTitle("Ranking based on the waist")
@@ -38,7 +45,7 @@ module.exports = {
           }
         return interaction.reply({ embeds: [embedWaist]});
     
-        } else if (args[0]=="hips") {
+        } else if (category=="hips") {
             datainfo.sort(function(a,b){return b[5][2]-a[5][2]});
         let embedHips = new MessageEmbed()
           embedHips.setTitle("Ranking based on the hips")
