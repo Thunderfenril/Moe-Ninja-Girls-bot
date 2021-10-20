@@ -5,14 +5,18 @@ const {MessageEmbed} = require('discord.js');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('help')
-		.setDescription('Embed sent to give info on the commands'),
+		.setDescription('Embed sent to give info on the commands')
+		.addStringOption(option =>
+			option.setName('command')
+			.setDescription("The name of the command you want the help. If there is no name, it will be a summary of all.")
+			.setRequired(false)),
 	async execute(interaction) {
-		const help = args[0]; //Look if there is an argument.
+		const help = interaction.options.getString('command'); //We get the argument if it exist
     	let indexHelp = -1;
     	const embedHelp = new MessageEmbed() //We will create a new embed
     	  embedHelp.setColor(5294200) //We set the color of the embed
     	switch (help) { //We look for the value stored in help
-    	  case "tips":
+    	  case "changelog":
     	    indexHelp=0;
     	    break;
     	  case "gacha":
@@ -56,6 +60,9 @@ module.exports = {
     	  case "versus":
     	    indexHelp = 13;
     	    break;
+		  case "github":
+			indexHelp=14;
+			break;
     	  default:
     	    indexHelp=dataHelp.length-1;
     	}
@@ -65,7 +72,6 @@ module.exports = {
     	  embedHelp.addFields({name: dataHelp[indexHelp][3][0], value: dataHelp[indexHelp][3][1]})
     	  embedHelp.addFields({name: dataHelp[indexHelp][4][0], value: dataHelp[indexHelp][4][1]})
     	  embedHelp.addFields({name: dataHelp[indexHelp][5][0], value: dataHelp[indexHelp][5][1]})
-    	  embedHelp.addFields({name: dataHelp[indexHelp][6][0], value: dataHelp[indexHelp][6][1]})
     	message.author.send(embedHelp);
 	},
 };
