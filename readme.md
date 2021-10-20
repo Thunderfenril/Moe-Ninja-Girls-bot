@@ -9,7 +9,7 @@
     03. Test the fm command _No idea how the command will work_ _Perhaps need to rework it ?_
     04. Need to change the way the test are done _(value == 'variable')_
     05. Change the local variable to the format: _name
-    06. Rework the dead command _Seems like same person can be added multiple time_
+    06. Rework the dead function _Seems like same person can be added multiple time_
     07. Change the revive command _People can revive themselves rn_
     08. Edit the fm return command _redo the calcul_
 
