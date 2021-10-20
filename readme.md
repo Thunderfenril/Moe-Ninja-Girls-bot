@@ -5,16 +5,13 @@
 ### Code
 
     01. Work on the options for the commands
-    02. Walkthrough *Not forget to credit the blog*
-    03. Add the pat command
-    04. Check to delete the send
-    05. Test the dm command _Might be broken_
-    06. Test the fm command _No idea how the command will work_ _Perhaps need to rework it ?_
-    07. Need to change the way the test are done _(value == 'variable')_
-    08. Change the local variable to the format: _name
-    09. Rework the dead command _Seems like same person can be added multiple time_
-    10. Change the revive command _People can revive themselves rn_
-    11. Edit the fm return command _redo the calcul_
+    02. Test the dm command _Might be broken_
+    03. Test the fm command _No idea how the command will work_ _Perhaps need to rework it ?_
+    04. Need to change the way the test are done _(value == 'variable')_
+    05. Change the local variable to the format: _name
+    06. Rework the dead command _Seems like same person can be added multiple time_
+    07. Change the revive command _People can revive themselves rn_
+    08. Edit the fm return command _redo the calcul_
 
 ### Data
 
@@ -38,6 +35,8 @@
     05. Fix walkthrough, so no error show when using the commands
     06. Fix walkthrough, so it works for 3.5 and 22.5
     07. Rework the ranking command and givePositionRanking _fuck yeah it's done_
+    08. Added the pat command
+    09. Walkthrough *Not forget to credit the blog*
 
 ### On the data
 
