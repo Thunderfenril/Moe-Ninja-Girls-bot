@@ -36,7 +36,8 @@ module.exports = {
 
 			}
 			interaction.user.send({embeds: [walkthroughEmbed]});
-			return interaction.user.send({embeds: [walkthroughEmbed2]});
+			interaction.user.send({embeds: [walkthroughEmbed2]});
+			return interaction.reply({content: "Walktrough sent", ephemeral: true});
 		}
 
 		let counter = 0;
@@ -53,7 +54,7 @@ module.exports = {
 		if(-1 == arraySeason) {
 			interaction.reply("You must have made an error in the season you selected.\n*Big thanks to the owner of the tumblr blog that allowed me to use his data*");
 		} else {
-			interaction.reply("Walktrough sent")
+			interaction.reply({content: "Walktrough sent", ephemeral: true})
 			return interaction.user.send(walkthrougharray[arraySeason][1]);
 		}
 	},
