@@ -13,6 +13,9 @@
     07. Change the revive command _People can revive themselves rn_
     08. Edit the fm return command _redo the calcul_
     09. Add EnjuCharge to Zap _<a:EnjuCharge:726832957750247428>_
+    10. Rework the profile command with the use of button.
+    11. Rework the data command with the use of button.
+    12. Rework the ranking command with the use of button.
 
 ### Data
 
