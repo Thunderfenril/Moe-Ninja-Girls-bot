@@ -5,6 +5,9 @@ module.exports = {
 		.setName('test')
 		.setDescription('String to see if the bot answer'),
 	async execute(interaction) {
-        return interaction.reply('Yes ?');
+		const ownerID="221352736657113088";
+		if(ownerID === interaction.user.id){
+        	return interaction.reply('Yes ?');
+		}
 	},
 };
