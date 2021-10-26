@@ -26,7 +26,6 @@
     05. Rewrite the comments in all the files
     06. Add the contributing.md file
     07. Add the guideline.md file
-    08. Licence I think
 
 ## Done
 
@@ -44,4 +43,4 @@
 
 ### On the data
 
-    00. Nothing for now
+    01. Licence added
