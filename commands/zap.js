@@ -27,8 +27,8 @@ module.exports = {
           } else {
             return interaction.reply("Zap at <@"+taggedUser+">")
           }
-        } else if(taggedUser === undefined){
-          return interaction.reply("Zap at "+stringOption.join(' '))
+        } else if(null === taggedUser && null !== stringOption){
+          return interaction.reply("Zap at "+stringOption)
         } else {
           return interaction.reply("Zap on everybody")
         }
