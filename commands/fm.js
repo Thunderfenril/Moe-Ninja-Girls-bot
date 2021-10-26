@@ -68,17 +68,17 @@ module.exports = {
 		switch (stageWeakness) {
 			case "fire":
 				fightingPowerWithJuice = valueFire * 3 + valueIce + valueThunder + valueLevel + valueShuriken;
-				fightingPowerWithoutJuice = valueFire * 1.5 + valueIce + valueThunder + valueLevel + valueShuriken;
+				fightingPowerWithoutJuice = valueFire * 2 + valueIce + valueThunder + valueLevel + valueShuriken;
 				break;
 
 			case "ice":
 				fightingPowerWithJuice = valueFire + valueIce * 3 + valueThunder + valueLevel + valueShuriken;
-				fightingPowerWithoutJuice = valueFire + valueIce * 1.5 + valueThunder + valueLevel + valueShuriken;
+				fightingPowerWithoutJuice = valueFire + valueIce * 2 + valueThunder + valueLevel + valueShuriken;
 				break;
 
 			case "thunder":
 				fightingPowerWithJuice = valueFire + valueIce + valueThunder * 3 + valueLevel + valueShuriken;
-				fightingPowerWithoutJuice = valueFire + valueIce + valueThunder * 1.5 + valueLevel + valueShuriken;
+				fightingPowerWithoutJuice = valueFire + valueIce + valueThunder * 2 + valueLevel + valueShuriken;
 				break;
 
 			default:
