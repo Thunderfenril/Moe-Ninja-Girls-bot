@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const wait = require('util').promisify(setTimeout);
 
 
 module.exports = {
@@ -21,9 +22,10 @@ module.exports = {
             interaction.reply("<@"+interaction.member.id+"> is a masochistic Hentai."); //We send this message
             return interaction.followUp('<a:EnjuZap:653780228933681192>')
           } else if(taggedUser.id === '758252653435944970' ||taggedUser.id === '720943363679059979') { //If he tag the bot or another bot then...
-            interaction.reply("*Focus*");
-            wait(1000);
-            interaction.editReply("Mega zap on <@"+interaction.member.id+">");
+            await interaction.reply("*Focus*");
+            await wait(1000);
+            await interaction.editReply("Mega zap on <@"+interaction.member.id+">");
+            return;
           } else {
             return interaction.reply("Zap at <@"+taggedUser+">")
           }
