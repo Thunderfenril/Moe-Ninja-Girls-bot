@@ -90,7 +90,7 @@ module.exports = {
 		 
   		   let numberOfDaysLeft = Math.floor((girlDate.getTime() - todayDate.getTime() )/ oneDay)
 		 
-  		   return interaction.reply("There is "+numberOfDaysLeft+" days left before "+datainfo[birthdayCandidate][0]+" birthday.")
+  		   return interaction.reply("There is "+numberOfDaysLeft+" days left before "+datainfo[birthdayCandidate][0]+"'s birthday.")
   		 }
 	},
 };
