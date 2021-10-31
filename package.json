@@ -20,13 +20,10 @@
   },
   "keywords": [
     "MNG",
-    "RPG",
     "Moe!",
     "Ninja",
-    "Girls",
-    "SHINOBI:",
-    "RPG"
+    "Girls"
   ],
   "author": "Nico",
-  "license": "ISC"
+  "license": "BSD"
 }
