@@ -8,7 +8,6 @@ const death1 = require("../array/deadList");
 function death(target){
   if(target!=undefined) {//We look if it's a mention or not, if it isn't, it's undefined
     if(typeof target == "string") {
-      console.log("You got killed")
       if(death1.length == 0){
         death1.push(target);
         return;
@@ -16,7 +15,6 @@ function death(target){
         let deadCounter = 0;
         for(deadCounter; deadCounter < death1.length; deadCounter++) {
           if(death1[deadCounter] == target) {
-            console.log("You has been found in it")
             return;
           }
         }
