@@ -6,16 +6,11 @@
 
     01. Work on the options for the commands
     02. Test the dm command _Might be broken_
-    03. Test the fm command _No idea how the command will work_ _Perhaps need to rework it ?_
-    04. Need to change the way the test are done _(value == 'variable')_
-    05. Change the local variable to the format: _name
-    06. Rework the dead function _Seems like same person can be added multiple time_
-    07. Change the revive command _People can revive themselves rn_
-    08. Edit the fm return command _redo the calcul_
-    09. Add EnjuCharge to Zap _<a:EnjuCharge:726832957750247428>_
-    10. Rework the profile command with the use of button.
-    11. Rework the data command with the use of button.
-    12. Rework the ranking command with the use of button.
+    03. Need to change the way the test are done _(value == 'variable')_
+    04. Change the local variable to the format: _name
+    05. Rework the profile command with the use of button.
+    07. Rework the data command with the use of button.
+    08. Rework the ranking command with the use of button.
 
 ### Data
 
@@ -40,6 +35,10 @@
     07. Rework the ranking command and givePositionRanking _fuck yeah it's done_
     08. Added the pat command
     09. Walkthrough *Not forget to credit the blog*
+    10. Zap and whip command edited
+    11. fm done
+    12. People can't be killed several time now
+    13. People can't revive themselves now
 
 ### On the data
 
