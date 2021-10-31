@@ -21,11 +21,13 @@ module.exports = {
 		if(target == interaction.user.id) {
 			return interaction.reply("You can't revive yourself.");
 		}
+
 	   	for (counter=0; counter<deadlist.length; counter++) {
-	   	  if (deadlist[counter] === target) {
-	   	    index=counter
-	   	  }
+	   	  	if (deadlist[counter] === target.id) {
+	   	    	index=counter
+	   	  	}
 	   	}
+
 	   	if (index === -1) {
 	   	  return interaction.reply("<@"+target+">"+" isn't dead *yet*")
 	   	} else {
