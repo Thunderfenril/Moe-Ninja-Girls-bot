@@ -13,10 +13,10 @@ module.exports = {
       option.setName('category')
       .setDescription("The category you wish to see the ranking.")
       .setRequired(false)
-      .addChoice("height")
-      .addChoice("bust")
-      .addChoice("hips")
-      .addChoice("waist")),
+      .addChoice("The category for the height", "height")
+      .addChoice("The category for the bust", "bust")
+      .addChoice("The category for the hips", "hips")
+      .addChoice("The category for the waist", "waist")),
 	async execute(interaction) {
 
     let category = interaction.options.getString('category');
