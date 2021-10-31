@@ -7,7 +7,7 @@ module.exports = {
 	async execute(interaction) {
 		const ownerID="221352736657113088";
 		if(ownerID === interaction.user.id){
-        	return interaction.reply('Yes ?');
+			return interaction.reply('Yes ?');
 		}
 	},
 };
