@@ -5,12 +5,23 @@ const deadlist = require("../array/deadList.js")
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('revive')
-		.setDescription('Ressurect someone dead'),
+		.setDescription('Ressurect someone dead')
+		.addUserOption(option=>
+			option.setName('target')
+			.setDescription("The one you wish to revive")
+			.setRequired(true)),
 	async execute(interaction) {
 		let index=-1
-	   	target=message.mentions.users.first().id
-	   	if (target == undefined) return; //Stop the command if no target
-	   	for (counter=0; counter<deadList.length; counter++) {
+	   	target=interaction.options.getUser('target')
+
+		if(deadlist.length == 0){
+			return interaction.reply("Nobody is dead so far.")
+		}
+
+		if(target == interaction.user.id) {
+			return interaction.reply("You can't revive yourself.");
+		}
+	   	for (counter=0; counter<deadlist.length; counter++) {
 	   	  if (deadlist[counter] === target) {
 	   	    index=counter
 	   	  }
