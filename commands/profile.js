@@ -19,14 +19,14 @@ module.exports = {
 	    
     let indexPosition = func.givePositionIndex(name); //We use a function to get the position of the girl in the list
 
-    if(indexPosition === -1){
+    if(indexPosition === -1){ //If the position wanst' found, then we stop
       return interaction.reply("Are you sure you didn't made a mistake in the name ?")
     }
 
     const monthString = func.monthToString(datainfo[indexPosition][2][1]) //Call to the function monthToString, to get a String with the name of the month
 
     if(indexPosition!=-1){ //If the girl was found, then we create an embed
-      const embedTest = new MessageEmbed()
+      const embedTest = new MessageEmbed() //We create a new embed
         .setTitle(datainfo[indexPosition][0]+ " "+ datainfo[indexPosition][1])
         .setColor(datainfo[indexPosition][14])
         .setFooter(datainfo[indexPosition][0]+" "+datainfo[indexPosition][1]+" profile page")

@@ -22,16 +22,16 @@ module.exports = {
             interaction.reply("<@"+interaction.member.id+"> is a masochistic Hentai."); //We send this message
             return interaction.followUp('<a:EnjuZap:653780228933681192>')
           } else if(taggedUser.id === '758252653435944970' ||taggedUser.id === '720943363679059979') { //If he tag the bot or another bot then...
-            await interaction.reply("*Focus*");
-            await wait(1000);
-            await interaction.editReply("Mega zap on <@"+interaction.member.id+">");
+            await interaction.reply("*Focus*"); //Creation of the message
+            await wait(1000); //Small timer
+            await interaction.editReply("Mega zap on <@"+interaction.member.id+">"); //Message got edited
             return;
           } else {
             return interaction.reply("Zap at <@"+taggedUser+">")
           }
-        } else if(null === taggedUser && null !== stringOption){
-          return interaction.reply("Zap at "+stringOption)
-        } else {
+        } else if(null === taggedUser && null !== stringOption){ //If there is no mention, but a text
+          return interaction.reply("Zap at "+stringOption) //We send the message with the argument
+        } else { //No mention nor text
           return interaction.reply("Zap on everybody")
         }
 	},

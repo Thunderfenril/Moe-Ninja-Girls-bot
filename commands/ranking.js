@@ -14,8 +14,8 @@ module.exports = {
       .setDescription("The name of the girl")
       .setRequired(true)),
 	async execute(interaction) {
-          let girl = interaction.options.getString('girl');
-          let indexGirl = func.givePositionIndex(girl);
+          let girl = interaction.options.getString('girl'); //We save the girl
+          let indexGirl = func.givePositionIndex(girl); //We look for her position, to get the data later on
       
           if(indexGirl != -1){
             const embedRanking = new MessageEmbed()
@@ -23,7 +23,7 @@ module.exports = {
               embedRanking.setColor(datainfo[indexGirl][14])
               embedRanking.addFields({name: "__Physical information:__", value:"\u200B"})
       
-              positionRank = func.givePositionRanking(datainfo[indexGirl][0], "height")
+              positionRank = func.givePositionRanking(datainfo[indexGirl][0], "height") //We look for her ranking through a function
               embedRanking.addFields({name: "Height:", value: positionRank+"th on "+datainfo.length, inline: true})
       
       

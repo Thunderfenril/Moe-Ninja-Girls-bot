@@ -3,16 +3,29 @@ const {MessageEmbed} = require('discord.js');
 
 
 const dataroll = require("../array/dataRoll.js");
-const func = require("../function/function.js")
+const func = require("../function/function.js");
+const datacharac = require("../array/data.js");
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('roll')
-		.setDescription('The gacha simulator'),
+		.setDescription('The gacha simulator')
+    .addStringOption(option =>
+      option.setName("category")
+      .setDescription("The category you wish to roll for")
+      .setRequired(true)
+      .addChoice("The body category", "body")
+      .addChoice("The tools category", "tools"))
+    .addIntegerOption(option =>
+      option.setName("quantity")
+      .setDescription("The number of rolls")
+      .setRequired(true)
+      .addChoice("Single roll", 1)
+      .addChoice("Multi roll", 10)),
 	async execute(interaction) {
-		if(message.channel.name==="spam-only"||message.channel.name==="cy’s-playground"){
+		//if(message.channel.name==="spam-only"||message.channel.name==="cy’s-playground"){
 
-            const numberOfRoll = args[1]; //We save the number of roll the user want to do
+            const numberOfRoll = interaction.options.getInteger("quantity"); //We save the number of roll the user want to do
       
             if((numberOfRoll>1 && numberOfRoll<10) || numberOfRoll>10){ //If it isn't 1 or 10, we say no
               message.reply({content: "You have to input either 1 or 10 in order to roll, not "+numberOfRoll+".", allowedMentions: { repliedUser: true}});
@@ -24,7 +37,7 @@ module.exports = {
               let currentRoll = 1; //We track at which roll we are
               var randomRarity; //Random rarity
               var randomObject; //Random object taken from the rarity
-              let randomCharacter = Math.floor(Math.random()*data.length); //A random character in the data array
+              let randomCharacter = Math.floor(Math.random()*datacharac.length); //A random character in the data array
               let randomColor = Math.floor(Math.random()*16777214)+1; //Random color between 1 and 16777215
       
               let indexPity = 0;
@@ -32,7 +45,7 @@ module.exports = {
       
               let pityBool = true; //Boolean to know if we can have access to the pity or not.
       
-              let category = args[0].toLowerCase();
+              let category = interaction.options.getString("category"); //We save which category it is
       
               while (currentRoll<=numberOfRoll) { //Loop until we have done the same amount of roll than the one chosen
                 if(pityBool){ //It's the normal case
@@ -81,13 +94,13 @@ module.exports = {
               const embedRoll = new MessageEmbed()
                 embedRoll.setAuthor("Salt Dispenser")
                 embedRoll.setTitle("Result of your roll")
-                embedRoll.setThumbnail(data[randomCharacter][13])
+                embedRoll.setThumbnail(datacharac[randomCharacter][13])
                 embedRoll.setColor(randomColor)
                 for(counterRoll=0; counterRoll < tabResult.length; counterRoll++){ //We will create as many fields as there is of item in tabResult
                   embedRoll.addFields({name: "Roll number "+(counterRoll+1)+":", value: tabResult[counterRoll]})
                 }
               return interaction.reply({ embeds: [embedRoll]})
             }
-          }
+          //}
 	},
 };

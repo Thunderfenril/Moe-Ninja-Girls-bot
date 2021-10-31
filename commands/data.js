@@ -7,7 +7,7 @@ const datainfo = require("../array/data");
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('datainfo')
+		.setName('data')
 		.setDescription('Give info on the height and 3 sizes')
     .addStringOption(option =>
       option.setName('category')
@@ -19,7 +19,7 @@ module.exports = {
       .addChoice("The category for the waist", "waist")),
 	async execute(interaction) {
 
-    let category = interaction.options.getString('category');
+    let category = interaction.options.getString('category'); //We save the category
 
 		if (category==="height") {
             datainfo.sort(function(a,b){return b[4]-a[4]}); //We sort the array based on the height
@@ -58,13 +58,13 @@ module.exports = {
           }
         return interaction.reply({ embeds: [embedHips]});
     
-        } else { //We sort before each category, making it a more general and easier code
+        } else { //We sort before each category, making it a more general and it's easier code
             const embeddatainfo=new MessageEmbed()
           embeddatainfo.setTitle("Summary on the datainfo.")
                 embeddatainfo.setColor(5294200)
                 embeddatainfo.setFooter("You big hentai")
     
-          datainfo.sort(function(a,b){return b[4]-a[4]});
+          datainfo.sort(function(a,b){return b[4]-a[4]}); //We sort the array, and make it easier to use and get the data
                 embeddatainfo.addFields({name:"The 3 tallest girls", value:"1. "+datainfo[0][0]+" "+datainfo[0][4]+"cm\n2. "+datainfo[1][0]+" "+datainfo[1][4]+"cm\n3. "+datainfo[2][0]+"  "+datainfo[2][4]+"cm"})
                 embeddatainfo.addFields({name:"\u200B", value:"\u200B"})
     

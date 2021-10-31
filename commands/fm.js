@@ -56,16 +56,16 @@ module.exports = {
 		let valueLevel = interaction.options.getInteger("level");
 		let valueShuriken = interaction.options.getInteger("shuriken");
 
-		if(valueFire < 0 || valueIce < 0|| valueThunder < 0 || valueLevel < 0 || valueShuriken < 0) {
+		if(valueFire < 0 || valueIce < 0|| valueThunder < 0 || valueLevel < 0 || valueShuriken < 0) { //Test if we have a negative number
 			return interaction.reply("One of the value is impossible");
 		}
 
-		let stageHP = fmdata[valueStage-1][0];
+		let stageHP = fmdata[valueStage-1][0]; //Look for the data for the stage
 		let stageLimit = fmdata[valueStage-1][1];
 		let fightingPowerWithoutJuice;
 		let fightingPowerWithJuice;
 
-		switch (stageWeakness) {
+		switch (stageWeakness) { //We calculate the power in function of the weakness of the stage
 			case "fire":
 				fightingPowerWithJuice = valueFire * 3 + valueIce + valueThunder + valueLevel + valueShuriken;
 				fightingPowerWithoutJuice = valueFire * 2 + valueIce + valueThunder + valueLevel + valueShuriken;
@@ -86,14 +86,15 @@ module.exports = {
 				break;
 		}
 
+		//We calculate the number of roun needed, and we round up the number
 		let numberOfRoundWithoutJuice = Math.ceil(stageHP/fightingPowerWithoutJuice);
 		let numberOfRoundWithJuice = Math.ceil(stageHP/fightingPowerWithJuice);
 
-		if (numberOfRoundWithJuice > stageLimit) {
+		if (numberOfRoundWithJuice > stageLimit) { //If the number of round with the juice is higher than the limit, it's impossible
 			return interaction.reply("You won't be able to beat the stage, you will need "+ (numberOfRoundWithJuice - stageLimit) + " more round to beat it.");
-		} else if (numberOfRoundWithoutJuice > stageLimit) {
+		} else if (numberOfRoundWithoutJuice > stageLimit) { //Else it's possible with juice
 			return interaction.reply("You won't be able to beat the stage without juice. You will need "+ numberOfRoundWithoutJuice+ " round to beat it.\nTry to use juice, you will need "+ numberOfRoundWithJuice+" round to beat the stage.");
-		} else {
+		} else { //And possible without
 			return interaction.reply("You can beat the stage in "+numberOfRoundWithoutJuice+" round without juice.\nIf you use juice, you will beat it in "+numberOfRoundWithJuice+" rounds instead.");
 		}
 	},

@@ -5,7 +5,7 @@
 ### Code
 
     01. Work on the options for the commands
-    02. Test the dm command _Might be broken_
+    02. Redo the dm command
     03. Need to change the way the test are done _(value == 'variable')_
     04. Change the local variable to the format: _name
     05. Rework the profile command with the use of button.
@@ -16,11 +16,8 @@
 
     01. Check the burst and add if missing
     02. Add the future self ?
-    03. Update the help
-    04. Update the changelog
-    05. Rewrite the comments in all the files
-    06. Add the contributing.md file
-    07. Add the guideline.md file
+    03. Add the contributing.md file
+    04. Add the guideline.md file
 
 ## Done
 
@@ -43,3 +40,6 @@
 ### On the data
 
     01. Licence added
+    02. Update the help command
+    03. Update changelog
+    04. Most of the comments are done

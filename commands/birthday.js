@@ -63,9 +63,6 @@ module.exports = {
   		        indexBirthday=counterBirthdayDifferentMonth;
   		      }
   		    }
-			  console.log(day)
-			  console.log(month)
-			  console.log(year)
   		    daysLeft = func.daysLeftInMonth(day, month, year); //We calculate how much days is left in this month...
   		    daysLeftBeforeBirthday = birthdayArray[indexBirthday][1][0] + daysLeft; //...and we add it to the day of the birthday
   		  }
@@ -76,21 +73,21 @@ module.exports = {
   		  return interaction.reply("There is "+daysLeftBeforeBirthday+" days before "+birthdayArray[indexBirthday][0]+" birthday!"); //Message that will be sent, where the numbers of days is saved in each category, and the name is looked in the array
   		 } else {
   		   let birthdayCandidate = func.givePositionIndex(args);
-  		   if(birthdayCandidate===-1) {return interaction.reply("Are you sure you didn't made a mistake in the name ?")}
+  		   if(birthdayCandidate===-1) {return interaction.reply("Are you sure you didn't made a mistake in the name ?")} //In case she hasn't been found
   		   let todayDate = new Date(year, month, day); //Today date
-  		   let girlDate = new Date(year, datainfo[birthdayCandidate][2][1]-1, datainfo[birthdayCandidate][2][0]);
+  		   let girlDate = new Date(year, datainfo[birthdayCandidate][2][1]-1, datainfo[birthdayCandidate][2][0]); //Date of her birthday
 		
-  		   if((datainfo[birthdayCandidate][2][1] == month +1) && (datainfo[birthdayCandidate][2][0] < day)) {
-  		    girlDate.setFullYear(girlDate.getFullYear() +1)
-  		   } else if (datainfo[birthdayCandidate][2][1] < month+1) {
-  		    girlDate.setFullYear(girlDate.getFullYear() +1)
+  		   if((datainfo[birthdayCandidate][2][1] == month +1) && (datainfo[birthdayCandidate][2][0] < day)) { //If we are in the month of her birthday, and her birthday is already over
+  		    girlDate.setFullYear(girlDate.getFullYear() +1) //We increase the next birthday year by 1
+  		   } else if (datainfo[birthdayCandidate][2][1] < month+1) { // if we are already past her birthday month
+  		    girlDate.setFullYear(girlDate.getFullYear() +1) //We increase by one
   		   }
 		 
   		   let oneDay = 1000*60*60*24 //Number of millisecond in 1 day
 		 
-  		   let numberOfDaysLeft = Math.floor((girlDate.getTime() - todayDate.getTime() )/ oneDay)
+  		   let numberOfDaysLeft = Math.floor((girlDate.getTime() - todayDate.getTime() )/ oneDay) //Operation for the difference of days between 2 dates
 		 
-  		   return interaction.reply("There is "+numberOfDaysLeft+" days left before "+datainfo[birthdayCandidate][0]+"'s birthday.")
+  		   return interaction.reply("There is "+numberOfDaysLeft+" days left before "+datainfo[birthdayCandidate][0]+" birthday.")
   		 }
 	},
 };

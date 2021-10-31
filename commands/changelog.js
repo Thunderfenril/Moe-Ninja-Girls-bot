@@ -6,7 +6,7 @@ module.exports = {
 		.setName('changelog')
 		.setDescription('Embed for the changelog'),
 	async execute(interaction) {
-		const embedChange = new MessageEmbed()
+		const embedChange = new MessageEmbed() //Creation of an embed
      		.setTitle("Changelog")
      		.setColor(5294200)
      		.setDescription("Changelog for the version 5.0.0.")

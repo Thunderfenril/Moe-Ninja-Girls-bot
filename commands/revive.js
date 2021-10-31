@@ -11,28 +11,28 @@ module.exports = {
 			.setDescription("The one you wish to revive")
 			.setRequired(true)),
 	async execute(interaction) {
-		let index=-1
-	   	target=interaction.options.getUser('target')
+		let index=-1;
+	   	target=interaction.options.getUser('target') //We get the mention
 
-		if(deadlist.length == 0){
-			return interaction.reply("Nobody is dead so far.")
+		if(deadlist.length == 0){ //Check if someone is dead
+			return interaction.reply("Nobody is dead so far.");
 		}
 
-		if(target == interaction.user.id) {
+		if(target == interaction.user.id) { //Check if the person mentionned himself
 			return interaction.reply("You can't revive yourself.");
 		}
 
-	   	for (counter=0; counter<deadlist.length; counter++) {
-	   	  	if (deadlist[counter] === target.id) {
-	   	    	index=counter
+	   	for (counter=0; counter<deadlist.length; counter++) { //For loop through the dead people
+	   	  	if (deadlist[counter] === target.id) { //Test if we found the person in the list or not
+	   	    	index=counter;
 	   	  	}
 	   	}
 
-	   	if (index === -1) {
-	   	  return interaction.reply("<@"+target+">"+" isn't dead *yet*")
-	   	} else {
-		  deadlist.splice(index, 1)
-	   	  return interaction.reply("<@"+target+">"+" has been ressurected !")
+	   	if (index === -1) { //If not found, the person isn't dead yet
+	   	  return interaction.reply("<@"+target+">"+" isn't dead *yet*");
+	   	} else { //The person has been found
+		  deadlist.splice(index, 1); //We delete this person from the list
+	   	  return interaction.reply("<@"+target+">"+" has been ressurected !");
 	   	}
 	},
 };
