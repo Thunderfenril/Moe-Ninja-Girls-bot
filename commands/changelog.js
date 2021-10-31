@@ -13,7 +13,7 @@ module.exports = {
      		.addFields({name:"__New feature__",
      		            value:"The serverinfo command.\nThe walktrough command.\nThe github command."})
      		.addFields({name:"__Change in the code__",
-     		            value:"Updated to discord V13.\nThe / commands.\nThe tips command has been removed"})
+     		            value:"Updated to discord V13.\nThe / commands.\nThe tips and dm commands has been removed"})
      		.addFields({name:"\u200B",
      		            value:"\u200B"})
      		.addFields({name:"__Plan to do__",
