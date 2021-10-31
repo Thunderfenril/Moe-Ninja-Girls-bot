@@ -4,7 +4,7 @@ const wait = require('util').promisify(setTimeout);
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('ping')
+		.setName('whip')
 		.setDescription('To whip something')
     .addUserOption(option =>
       option.setName("target")
