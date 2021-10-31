@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const wait = require('util').promisify(setTimeout);
 
 module.exports = {
 	data: new SlashCommandBuilder()
