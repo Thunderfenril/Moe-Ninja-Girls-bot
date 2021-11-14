@@ -5,12 +5,12 @@
 ### Code
 
     01. Work on the options for the commands
-    02. Redo the dm command
-    03. Need to change the way the test are done _(value == 'variable')_
-    04. Change the local variable to the format: _name
-    05. Rework the profile command with the use of button.
-    06. Rework the data command with the use of button.
-    07. Rework the ranking command with the use of button.
+    02. Need to change the way the test are done _(value == 'variable')_
+    03. Change the local variable to the format: _name
+    04. Rework the profile command with the use of button.
+    05. Rework the data command with the use of button.
+    06. Rework the ranking command with the use of button.
+    07. Redo Walkthrough command _detailled version when select a season, and a list_
 
 ### Data
 
