@@ -18,6 +18,7 @@
     02. Add the future self ?
     03. Add the contributing.md file
     04. Add the guideline.md file
+    05. Add a line in fm to see the power with and without juice
 
 ## Done
 
