@@ -13,7 +13,15 @@ for (const file of commandFiles) {
 }
 
 client.once('ready', () => {
-	console.log('Ready!');
+	const randomGreeting = Math.floor(Math.random()*2); //We create a random number for the greeting and the status
+  if (randomGreeting == 0) {
+    client.channels.cache.get('879401276671152188').send('Hello everyone ! <:EnjuHappy:534157250550562847>  ');
+    client.user.setActivity("Doing some student council work");
+  } else {
+    client.channels.cache.get('879401276671152188').send('Good morning ! <:Ran:604525871214100490>  ');
+    client.user.setActivity("Learning new ninjutsu");
+  }
+  console.log(randomGreeting)
 });
 
 client.on('interactionCreate', async interaction => {

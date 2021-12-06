@@ -1,7 +1,9 @@
-node_modules/
+node_modules*
 config.json
-bot.js
+package.js
+*.txt
+package-lock.js
+AprilFool.js
+key
+Moe-Ninja-Girls-bot/
 package-lock.json
-updateV13.js
-TempFileToChangeACommand.js
-option.txt
