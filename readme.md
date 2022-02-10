@@ -11,6 +11,9 @@
     05. Rework the ranking command with the use of button.
     06. Redo Walkthrough command _detailled version when select a season, and a list_
     07. Work on the function files, to reduce the Cognitive Complexity _give positionRanking & death_
+    08. Add the effect of the ninjutsu file in an Array to reduce the Cognitive Complexity and add the let declaration when VTuber effect
+    09. Remove the commented line from roll and add let declaration
+    10. Rework the ranking command to reduce the repetition
 
 ### Data
 
