@@ -9,11 +9,11 @@ module.exports = {
 		const embedChange = new MessageEmbed() //Creation of an embed
      		.setTitle("Changelog")
      		.setColor(5294200)
-     		.setDescription("Changelog for the version 5.0.0.")
+     		.setDescription("Changelog for the version 5.1.0.")
      		.addFields({name:"__New feature__",
-     		            value:"The serverinfo command.\nThe walktrough command.\nThe github command."})
+     		            value:"None."})
      		.addFields({name:"__Change in the code__",
-     		            value:"Updated to discord V13.\nThe / commands.\nThe tips and dm commands has been removed"})
+     		            value:"Updated the birthday command."})
      		.addFields({name:"\u200B",
      		            value:"\u200B"})
      		.addFields({name:"__Plan to do__",
