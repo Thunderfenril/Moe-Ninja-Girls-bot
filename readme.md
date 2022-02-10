@@ -4,13 +4,12 @@
 
 ### Code
 
-    01. Work on the options for the commands
-    02. Need to change the way the test are done _(value == 'variable')_
-    03. Change the local variable to the format: _name
-    04. Rework the profile command with the use of button.
-    05. Rework the data command with the use of button.
-    06. Rework the ranking command with the use of button.
-    07. Redo Walkthrough command _detailled version when select a season, and a list_
+    01. Need to change the way the test are done _(value == 'variable')_
+    02. Change the local variable to the format: _name
+    03. Rework the profile command with the use of button.
+    04. Rework the data command with the use of button.
+    05. Rework the ranking command with the use of button.
+    06. Redo Walkthrough command _detailled version when select a season, and a list_
 
 ### Data
 
@@ -37,6 +36,7 @@
     11. fm done
     12. People can't be killed several time now
     13. People can't revive themselves now
+    14. The options in the commands
 
 ### On the data
 
