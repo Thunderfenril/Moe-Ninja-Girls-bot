@@ -31,8 +31,7 @@ function daysLeftInMonth(day, month, year) {
         daysInMonth=28;
       }
     }
-    var daysLeft=daysInMonth-day;
-    return daysLeft;
+    return daysLeft=daysInMonth-day;
   }
 
 /*
@@ -83,7 +82,7 @@ function givePositionIndex(name){
     let indexGirl = -1; //We initialize a variable to -1 if not found
     let nameTarget = targetName.charAt(0).toUpperCase() + targetName.substr(1, 10); //We change the name so it start with a major letter
   
-    for(counter = 0; counter < data.length; counter ++){ //For loop
+    for(let counter = 0; counter < data.length; counter ++){ //For loop
       if(nameTarget === data[counter][0]){ //If to check if the name correspond
         indexGirl = counter; //If yes, then we save the position in a variable
       }
@@ -109,14 +108,14 @@ function givePositionRanking(name, category){
 
   switch (category) {
     case "height":
-      for(counterRankingArray = 0; counterRankingArray<data.length; counterRankingArray++){ //Adding the data of the height in the array
+      for(let counterRankingArray = 0; counterRankingArray<data.length; counterRankingArray++){ //Adding the data of the height in the array
         if(0 != data[counterRankingArray][4]) {
           rankingArray.push(data[counterRankingArray][4])
         }
       }
 
       rankingArray.sort(function(a, b){return b-a}); //We sort the array
-      for(counterIndexRanking=rankingArray.length-1; counterIndexRanking >= 0; counterIndexRanking--){ //We do a for loop from the end
+      for(let counterIndexRanking=rankingArray.length-1; counterIndexRanking >= 0; counterIndexRanking--){ //We do a for loop from the end
         if(data[indexGirl][4]==rankingArray[counterIndexRanking]){
           index=counterIndexRanking;
         }
@@ -125,12 +124,12 @@ function givePositionRanking(name, category){
 
 
     case "bust":
-      for(counterRankingArray = 0; counterRankingArray<data.length; counterRankingArray++){
+      for(let counterRankingArray = 0; counterRankingArray<data.length; counterRankingArray++){
         rankingArray.push(data[counterRankingArray][5][0])
       }
 
       rankingArray.sort(function(a, b){return b-a});
-      for(counterIndexRanking=rankingArray.length; counterIndexRanking > 0; counterIndexRanking--){
+      for(let counterIndexRanking=rankingArray.length; counterIndexRanking > 0; counterIndexRanking--){
         if(data[indexGirl][5][0]==rankingArray[counterIndexRanking]){
           index=counterIndexRanking;
         }
@@ -139,12 +138,12 @@ function givePositionRanking(name, category){
 
 
     case "waist":
-      for(counterRankingArray = 0; counterRankingArray<data.length; counterRankingArray++){
+      for(let counterRankingArray = 0; counterRankingArray<data.length; counterRankingArray++){
         rankingArray.push(data[counterRankingArray][5][1])
       }
 
       rankingArray.sort(function(a, b){return b-a});
-      for(counterIndexRanking=rankingArray.length; counterIndexRanking > 0; counterIndexRanking--){
+      for(let counterIndexRanking=rankingArray.length; counterIndexRanking > 0; counterIndexRanking--){
         if(data[indexGirl][5][1]==rankingArray[counterIndexRanking]){
           index=counterIndexRanking;
         }
@@ -153,12 +152,12 @@ function givePositionRanking(name, category){
 
 
     case "hips":
-      for(counterRankingArray = 0; counterRankingArray<data.length; counterRankingArray++){
+      for(let counterRankingArray = 0; counterRankingArray<data.length; counterRankingArray++){
         rankingArray.push(data[counterRankingArray][5][2])
       }
 
       rankingArray.sort(function(a, b){return b-a});
-      for(counterIndexRanking=rankingArray.length; counterIndexRanking > 0; counterIndexRanking--){
+      for(let counterIndexRanking=rankingArray.length; counterIndexRanking > 0; counterIndexRanking--){
         if(data[indexGirl][5][2]==rankingArray[counterIndexRanking]){
           index=counterIndexRanking;
         }

@@ -10,6 +10,7 @@
     04. Rework the data command with the use of button.
     05. Rework the ranking command with the use of button.
     06. Redo Walkthrough command _detailled version when select a season, and a list_
+    07. Work on the function files, to reduce the Cognitive Complexity _give positionRanking & death_
 
 ### Data
 
