@@ -9,11 +9,11 @@ module.exports = {
 		const embedChange = new MessageEmbed() //Creation of an embed
      		.setTitle("Changelog")
      		.setColor(5294200)
-     		.setDescription("Changelog for the version 5.1.0.")
+     		.setDescription("Changelog for the version 5.2.0.")
      		.addFields({name:"__New feature__",
-     		            value:"None."})
+     		            value:"The project command."})
      		.addFields({name:"__Change in the code__",
-     		            value:"Updated the birthday command."})
+     		            value:"None."})
      		.addFields({name:"\u200B",
      		            value:"\u200B"})
      		.addFields({name:"__Plan to do__",
