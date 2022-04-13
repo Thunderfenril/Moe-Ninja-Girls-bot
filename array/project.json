@@ -1,0 +1,82 @@
+[
+    {
+        "id": "sprite",
+        "description": "I will have to first sort all the sprites from the mains characters, that might takes some time, but it should be quite fast.\nAfter that, I will have to 'create the sprite', by that I mean that I will have to create the body with the expressions. That will takes a lots of time.",
+        "task": {
+            "Sort": [
+                0,
+                15
+            ],
+            "Sprite": [
+                0,
+                "A lot"
+            ]
+        }
+    },
+
+    {
+        "id" : "background",
+        "description": "There is a god damn lots of backgrounds, and I will have to sort some cause I know we won't use them ~~bye bye the anniversary one~~.\nAnd unfortunately, they aren't in the good size, so I will have to find the right size, then resize them ~~and bully Blue to upscale them~~",
+        "task": {
+            "Sort": [
+                0,
+                1373
+            ],
+
+            "Resize" : [
+                0,
+                "TBD"
+            ]
+            
+        }
+    },
+
+    {
+        "id": "story",
+        "description": "One of the main work of the project.\nHow god there is a lots of info to take, write and process, and I will ask some people to help.",
+        "task": {
+            "Prologue": [
+                "Complete",
+                "Banzai"
+            ],
+            "High school": [
+                0,
+                32
+            ],
+            "College": [
+                0,
+                4
+            ]
+        }
+    },
+
+    {
+        "id": "recruitment",
+        "description": "I'm a student, and just a regular human, so I will have to ask some people to help me in this adventure.\nIf you think that you can help, you are also free to reach me and ask if you could help in any way.",
+        "task": {
+            "Post": [
+                "Working",
+                "the draft"
+            ],
+            "Contact People": [
+                "Working",
+                "who to complete"
+            ]
+        }
+    },
+
+    {
+        "id": "development",
+        "description": "That's the other big work of the project, and that will be where I will mostly put all my focus.\nFor the people interested, I will work with 'Visual Novel Maker', it has a lots of useful tools, and a good tutorial, so it's quite fast for me to relarn everything.",
+        "task": {
+            "Learning": [
+                8,
+                12
+            ],
+            "Story": [
+                "Waiting",
+                "getting more scripts"
+            ]
+        }
+    }
+]
