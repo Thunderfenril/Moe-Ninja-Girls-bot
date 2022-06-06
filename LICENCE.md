@@ -1,6 +1,6 @@
 # The Clear BSD License
 
-Copyright (c) 2021 GUYOMARCH Nicolas
+Copyright (c) 2022 GUYOMARCH Nicolas
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
